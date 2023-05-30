@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Swarnakasa</title>
     <!--  -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
@@ -27,7 +27,9 @@
     <!-- Animate -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/media.css" />
+    <link rel="stylesheet" href="./css/division.css" />
   </head>
   
   <body>
@@ -38,7 +40,7 @@
     <!-- navigation menu -->
     <nav>
       <div class="navbar">
-        <div class="logo"><a href="#">SWARNAKASA</a></div>
+        <div class="logo"><img src="./Images/logo.png" class="img-fluid w-25 h-25" /></div>
         <ul class="menu">
           <li><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
@@ -48,12 +50,6 @@
             <i class="fas fa-times"></i>
           </div>
         </ul>
-        <div class="media-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
-        </div>
       </div>
       <div class="menu-btn">
         <i class="fas fa-bars"></i>
@@ -65,11 +61,10 @@
       <div class="home-content">
         <div class="text">
           <div class="text-two">SWARNAKASA ITERA</div>
-          <div class="text-three">Advancing Technology on UAV</div>
-          <div class="text-three">Industry</div>
+          <div class="text-three">#LampauiBatasGenerasiEmasMengudara</div>
         </div>
-        <div class="button">
-          <button><a href="#">Let Know Us</a></button>
+        <div class="mt-5">
+          <a><button class="btn btn-warning">Let Know Us</button></a>
         </div>
       </div>
     </section>
@@ -77,22 +72,17 @@
     <!-- About Section Start -->
     <section class="about" id="about">
       <div class="content">
-        <div class="title"><span>About Us</span></div>
+        <div class="subheader"><span>About Us</span></div>
         <div class="about-details">
           <div class="left">
             <p>
-              Swarnakasa merupakan bagian dari Unit Kegiatan Mahasiswa UROTERA yang fokus pada penelitian pengembangan keilmuan di bidang UAV. Kompetisi yang pernah diikuti oleh UROTERA dalam bidang UAV yaitu Kontes Robot Terbang Indonesia
-              (KRTI) yang dimulai dari tahun 2018. Pada tahun 2018 UROTERA menurunkan tim SkyWalk di divisi Fixed Wing dan mendapatkan penghargaan pendatang baru terbaik. Kemudian di tahun berikutnya UROTERA kembali turun di KRTI 2019
-              dengan mengirimkan tim Fixed Wing, Racing Plane dan Technology Development. Dan di tahun 2020 UROTERA hanya mengirimkan 1 tim Technology Development. Kemudian di tahun 2021 UROTERA tidak memiliki delegasi di KRTI 2021. Karena
-              sempat vakum selama beberapa saat,
+              Swarnakasa merupakan bagian dari Unit Kegiatan Mahasiswa UROTERA yang fokus pada penelitian pengembangan keilmuan di bidang UAV. Kompetisi yang pernah diikuti oleh UROTERA dalam bidang UAV yaitu Kontes Robot Terbang Indonesia (KRTI) yang dimulai dari tahun 2018. Pada tahun 2018 UROTERA menurunkan tim SkyWalk di divisi Fixed Wing dan mendapatkan penghargaan pendatang baru terbaik. Kemudian di tahun berikutnya UROTERA kembali turun di KRTI 2019 dengan mengirimkan tim Fixed Wing, Racing Plane dan Technology Development. Dan di tahun 2020 UROTERA hanya mengirimkan 1 tim Technology Development. Kemudian di tahun 2021 UROTERA tidak memiliki delegasi di KRTI 2021. Karena sempat vakum selama beberapa saat
             </p>
           </div>
           <div class="right">
             <p>
-              kami saat ini ingin menciptakan semangat baru dengan visi membangun tim yang dapat sustainable. Maka dari itu kami memiliki semangat baru untuk membuat sebuah bagian dari UROTERA yang fokus dalam bidang penelitian dan
-              pengembangan keilmuan di bidang UAV melalui Swarnakasa. Nama Swarnakasa sendiri merupakan penggabungan dari kata “Swarna” yang berarti emas dan “Akasa” yang berarti mengudara yang jika digabungkan memiliki makna “mengudara
-              bersama generasi Emas Sumatera”. Oleh karena itu kami memiliki tagline #LampauiBatas,GenerasiEmasMengudara yang berarti Tim Swarnakasa bertekad untuk melampaui segala rintangan melalui Generasi Emas Sumatera melalui karya
-              dan penelitiannya.
+              Kami saat ini ingin menciptakan semangat baru dengan visi membangun tim yang dapat sustainable. Maka dari itu kami memiliki semangat baru untuk membuat sebuah bagian dari UROTERA yang fokus dalam bidang penelitian dan pengembangan keilmuan di bidang UAV melalui Swarnakasa. Nama Swarnakasa sendiri merupakan penggabungan dari kata “Swarna” yang berarti emas dan “Akasa” yang berarti mengudara yang jika digabungkan memiliki makna “mengudara bersama generasi Emas Sumatera”. Oleh karena itu kami memiliki tagline #LampauiBatas
+              GenerasiEmasMengudara yang berarti Tim Swarnakasa bertekad untuk melampaui segala rintangan melalui Generasi Emas Sumatera melalui karya dan penelitiannya.
             </p>
           </div>
         </div>
@@ -101,12 +91,10 @@
     
     
     <!-- Division Section -->
-    <div class="division" id="division">
-      <div class="division-title">
-        <h1>Division</h1>
-      </div>
+    <section class="division" id="division">
+    <div class="subheader"><span>Division</span></div>
 
-      <div class="division-card">
+   <div class="division-card">
         <div
           class="yellow float-start"
           data-aos="fade-up-right"
@@ -119,11 +107,7 @@
 
             <div class="desc">
               <h1 class="title">Airframe</h1>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
-                itaque mollitia voluptas soluta deleniti nesciunt error eius
-                expedita. Ipsam error provident tenetur exercitationem. Dicta
-                veritatis quos, quisquam repellendus sit magni!
+              <p>Divisi ini memiliki konsentrasi terhadap misi untuk menciptakan Inovasi pada bagian Airframe dari sebuah UAV.
               </p>
             </div>
           </div>
@@ -137,11 +121,7 @@
           <div class="elemen">
             <div class="desc">
               <p class="title">Propeller</p>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
-                itaque mollitia voluptas soluta deleniti nesciunt error eius
-                expedita. Ipsam error provident tenetur exercitationem. Dicta
-                veritatis quos, quisquam repellendus sit magni!
+              <p>Divisi ini memiliki konsentrasi terhadap misi untuk menciptakan Inovasi pada bagian Propeller dari sebuah UAV.
               </p>
             </div>
 
@@ -163,11 +143,7 @@
 
             <div class="desc">
               <h1 class="title">Flight Controller</h1>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
-                itaque mollitia voluptas soluta deleniti nesciunt error eius
-                expedita. Ipsam error provident tenetur exercitationem. Dicta
-                veritatis quos, quisquam repellendus sit magni!
+              <p>Divisi ini memiliki konsentrasi terhadap misi untuk menciptakan Inovasi pada bagian Flight Controler dari sebuah UAV
               </p>
             </div>
           </div>
@@ -181,11 +157,7 @@
           <div class="elemen">
             <div class="desc">
               <h1 class="title">Racing Plane</h1>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
-                itaque mollitia voluptas soluta deleniti nesciunt error eius
-                expedita. Ipsam error provident tenetur exercitationem. Dicta
-                veritatis quos, quisquam repellendus sit magni!
+              <p>Divisi ini memiliki konsentrasi terhadap membuat pesawat yang dapat terbang dan tepat sesuai dengan temanya “FAST And on Track” 
               </p>
             </div>
 
@@ -207,23 +179,18 @@
 
             <div class="desc">
               <h1 class="title">Fixed Wing</h1>
-              <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
-                itaque mollitia voluptas soluta deleniti nesciunt error eius
-                expedita. Ipsam error provident tenetur exercitationem. Dicta
-                veritatis quos, quisquam repellendus sit magni!
+              <p>Divisi ini memiliki konsentrasi terhadap membuat pesawat yang dapat melakukan misi Monitoring mapping dan pengiriman paket darurat  sesuai dengan temanya “Pengiriman Paket Darurat pada wilayah Bencana”
               </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <!-- End Division Section -->
 
     <!--   Start Progress Section   -->
     <section class="progress" id="our-progress">
-      <div class="progres-title" data-aos="fade-up" data-aos-duration="1500">
-        <h1>Our Progres</h1>
+      <div class="subheader" data-aos="fade-up" data-aos-duration="1500"><span>Our Progress</span>
       </div>
 
       <iframe
@@ -241,7 +208,7 @@
     <!--   End Progress Section   -->
 
     <!-- Footer Section Start -->
-    <footer class="text-center">
+    <footer class="">
       <div class="container footer-content">
          <div class="row">
           <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
@@ -254,25 +221,25 @@
                 <div><i class="fa-brands fa-instagram"></i></div>
               </div>
                <div class="flex-column">
-                <h4 >Instagram</h4>
+                <h4>Instagram</h4>
                 <a href="https://www.instagram.com/uro.itera/" >@uro.itera</a>
                </div>
              </div>
              <div class="flex-body">
                <div class="flex-row">
-                <div ><i class="fa-brands fa-youtube"></i></div>
+                <div><i class="fa-brands fa-youtube"></i></div>
               </div>
                <div class="flex-column">
-                <h4 >Youtube</h4>
+                <h4>Youtube</h4>
                 <a href="https://www.youtube.com/@unitrobotikaitera-urotera6413" >@unitrobotikaitera</a>
                </div>
              </div>
              <div class="flex-body">
                <div class="flex-row">
-                <div  ><i class="fa-brands fa-facebook"></i></div>
+                <div><i class="fa-brands fa-facebook"></i></div>
               </div>
                <div class="flex-column">
-                <h4 >Facebook</h4>
+                <h4>Facebook</h4>
                 <a href="#" >@uro.itera</a>
                </div>
              </div>
@@ -282,12 +249,12 @@
            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
             <div class="mapouter" 
               data-aos="fade-up"
-              data-aos-duration="2200"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=677&amp;height=400&amp;hl=en&amp;q=e building itera&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://capcuttemplate.org/">Capcut Templates</a></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>
+              data-aos-duration="2200"><div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=677&amp;height=400&amp;hl=en&amp;q=e building itera&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div><style>.mapouter{position:relative;text-align:right;width:100%;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:100%;height:400px;}.gmap_iframe {height:400px!important;}</style></div>
           </div>
          </div>
        </div>
 
-       <div class="footer-bottom text-center"><p> &copy;Copyright Official <b>SWARNAKASA</b> 2023. All Rights Reserved.</p></div>
+       <div class="footer-bottom text-left"><p> &copy;Copyright Official <b>SWARNAKASA</b> 2023. All Rights Reserved.</p></div>
 
     </footer>
 
