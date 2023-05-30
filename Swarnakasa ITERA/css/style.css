@@ -1,0 +1,359 @@
+/*base color*/
+:root {
+  --navy: #21325E;
+  --yellow: #F1D00A;
+}
+/* Google Font CDN Link */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family==Plus+Jakarta+Sans:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  text-decoration: none!important;
+}
+
+body{
+  background-color: var(--navy);
+}
+/* Custom Scroll Bar CSS */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #6e93f7;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--navy);
+}
+/* navbar styling */
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 998;
+  transition: all 0.3s ease;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+nav.sticky {
+  background: var(--navy);
+}
+nav .navbar {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+nav .navbar .logo a {
+  font-weight: 500;
+  font-size: 35px;
+  color: var(--navy);
+}
+nav.sticky .navbar .logo a {
+  color: #fff;
+}
+nav .navbar .menu {
+  display: flex;
+  position: relative;
+}
+nav .navbar .menu li {
+  list-style: none;
+  margin: 0 8px;
+}
+.navbar .menu a {
+  font-size: 18px;
+  font-weight: 500;
+  color: #0e2431;
+  padding: 6px 0;
+  transition: all 0.4s ease;
+}
+.navbar .menu a:hover {
+  color: var(--navy);
+}
+nav.sticky .menu a {
+  color: #fff;
+}
+nav.sticky .menu a:hover {
+  color: #0e2431;
+}
+.navbar .media-icons a {
+  color: var(--navy);
+  font-size: 18px;
+  margin: 0 6px;
+}
+nav.sticky .media-icons a {
+  color: #fff;
+}
+
+/* Side Navigation Menu Button CSS */
+nav .menu-btn,
+.navbar .menu .cancel-btn {
+  position: absolute;
+  color: #fff;
+  right: 30px;
+  top: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: none;
+}
+nav .menu-btn {
+  color: var(--navy);
+}
+nav.sticky .menu-btn {
+  color: #fff;
+}
+.navbar .menu .menu-btn {
+  color: #fff;
+}
+
+/* home section styling */
+.home {
+  height: 100vh;
+  width: 100%;
+  background: url("../images/background.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+.home .home-content {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home .text-one {
+  font-size: 25px;
+  color: #0e2431;
+}
+.home .text-two {
+  color: #fff;
+  font-size: 60px;
+  font-weight: 600;
+  margin-left: -3px;
+}
+.home .text-three {
+  font-size: 40px;
+  margin: 5px 0;
+  color: #fff;
+}
+.home .text-four {
+  font-size: 23px;
+  margin: 5px 0;
+  color: #0e2431;
+}
+.home .button {
+  margin: 14px 0;
+}
+.home .button button {
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 400;
+  background: var(--yellow);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+}
+.home .button button:hover {
+  border-color: var(--yellow);
+  background-color: #fff;
+}
+
+/* About Section Styling */
+/* Those Elements Where We Have Apply Same CSS,
+ I'm Selecting Directly 'Section Tag' and 'Class'  */
+section {
+  padding-top: 40px;
+}
+section .content {
+  width: 80%;
+  margin: 40px auto;
+  font-family: "Poppins", sans-serif;
+}
+.about .about-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+section .subheader {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+section .subheader span {
+  color:white;
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+section .subheader span::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: white;
+  left: 0;
+  bottom: 0;
+}
+section .subheader span::after {
+  bottom: -7px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.about-details .left {
+  text-align: justify;
+  width: 45%;
+}
+.about .left img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.about-details .right {
+  text-align: justify;
+  width: 45%;
+}
+/*.about-details .right p {
+  color: #0e2431;
+}*/
+section .topic {
+  color: #0e2431;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+footer{
+  background-color: #3E497A;
+  margin-top: 160px;
+}
+.footer-content{
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.footer-col h3{
+  margin: 0px auto;
+  font-size: 2.5rem;
+  color: #ffffff;
+  position: relative;
+  width: 80%;
+  display: flex;
+  justify-content: left;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  position: relative;
+  font-weight: bold;
+}
+
+.footer-col h3::after {
+  content: "";
+  display: block;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 0px;
+  width: 80%;
+  height: 0.2rem;
+  background: #ffffff;
+}
+.flex-row {
+    flex-direction: row;
+    display: flex;
+}
+.flex-column {
+    flex-direction: column;
+    display: flex;
+    flex: 50px;
+    width: 50px;
+}
+.flex-body {
+    display: flex;
+    max-width: 150px;
+    margin-left: 50px;
+    padding:0 10px 10px 0;
+    background-color: transparent;
+}
+.flex-body div:not([class*="flex"]) {
+    border: 0px solid;
+    flex: 1 1 50px;
+    width: 150px;
+}
+.fa-brands{
+  font-size: 2em;
+}
+.footer-col h4{
+  font-size:1.875rem;
+  color: #ffffff;
+}
+.footer-col a{
+  font-size: 1.5rem;
+  color: #f1d00a;
+  text-decoration: none;
+  font-weight: 300;
+  display: block;
+  -webkit-text-stroke: 1px black;
+  font-weight: bold
+}
+.flex-row {
+    flex-direction: row;
+    display: flex;
+}
+.flex-column {
+    flex-direction: column;
+    display: flex;
+    flex: 50px;
+    width: 50px;
+}
+.flex-body {
+    display: flex;
+    max-width: 150px;
+    margin-left: 50px;
+    padding:0 10px 10px 0;
+}
+.flex-body h4{
+    background: #3E497A;
+}
+.flex-body div:not([class*="flex"]) {
+    border: 0px solid;
+    flex: 1 1 50px;
+    width: 150px;
+}
+.fa-brands{
+  font-size: 75px;
+}
+.footer-bottom {
+  background-color: #F1D00A;
+  color:#21325e;
+  padding-top: 17px;
+  padding-bottom: 10px;
+  padding-left: 18px;
+}
+/* Scroll TO Top Button CSS */
+.scroll-button a {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  background: var(--navy);
+  padding: 7px 12px;
+  font-size: 18px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.15);
+  display: none;
+}
