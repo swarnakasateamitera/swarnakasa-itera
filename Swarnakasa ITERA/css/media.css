@@ -33,6 +33,10 @@
 }
 
 @media (max-width: 750px) {
+
+  .home{
+    background-position: -40rem;
+  }
   nav .navbar {
     width: 90%;
   }
