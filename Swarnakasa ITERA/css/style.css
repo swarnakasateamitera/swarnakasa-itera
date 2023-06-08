@@ -16,6 +16,7 @@
 
 body{
   background-color: var(--navy);
+  overflow-x: hidden;
 }
 /* Custom Scroll Bar CSS */
 ::-webkit-scrollbar {
@@ -33,6 +34,7 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background: var(--navy);
 }
+
 /* navbar styling */
 nav {
   position: fixed;
@@ -43,6 +45,7 @@ nav {
 }
 nav.sticky {
   background: var(--navy);
+  box-shadow: 0 0 100px var(--navy);
 }
 nav .navbar {
   width: 90%;
@@ -81,7 +84,7 @@ nav.sticky .menu a {
   color: #fff;
 }
 nav.sticky .menu a:hover {
-  color: #0e2431;
+  color: var(--yellow);
 }
 .navbar .media-icons a {
   color: var(--navy);
@@ -205,17 +208,13 @@ section .subheader span::after {
   content: "";
   position: absolute;
   height: 3px;
-  width: 100%;
   background: white;
-  left: 0;
-  bottom: 0;
-}
-section .subheader span::after {
   bottom: -7px;
   width: 70%;
   left: 50%;
   transform: translateX(-50%);
 }
+
 .about-details .left {
   text-align: justify;
   width: 45%;
@@ -250,15 +249,13 @@ footer{
 }
 .footer-col h3{
   margin: 0px auto;
-  font-size: 2.5rem;
+  font-size: 30px;
   color: #ffffff;
   position: relative;
-  width: 80%;
   display: flex;
   justify-content: left;
   margin-bottom: 2rem;
   font-weight: 400;
-  position: relative;
   font-weight: bold;
 }
 
@@ -268,7 +265,7 @@ footer{
   position: absolute;
   margin: 0 auto;
   bottom: 0px;
-  width: 80%;
+  width: 5em;
   height: 0.2rem;
   background: #ffffff;
 }
@@ -282,27 +279,27 @@ footer{
     flex: 50px;
     width: 50px;
 }
-.flex-body {
-    display: flex;
-    max-width: 150px;
+/*.flex-body {*/
+/*    display: flex;*/
+
+/*    max-width: 150px;
+    justify-content: center;
     margin-left: 50px;
     padding:0 10px 10px 0;
-    background-color: transparent;
-}
-.flex-body div:not([class*="flex"]) {
+    background-color: transparent;*/
+/*}*/
+
+/*.flex-body div:not([class*="flex"]) {
     border: 0px solid;
     flex: 1 1 50px;
     width: 150px;
-}
-.fa-brands{
-  font-size: 2em;
-}
+}*/
 .footer-col h4{
-  font-size:1.875rem;
+  font-size:25px;
   color: #ffffff;
 }
 .footer-col a{
-  font-size: 1.5rem;
+/*  font-size: 18px;*/
   color: #f1d00a;
   text-decoration: none;
   font-weight: 300;
@@ -326,16 +323,17 @@ footer{
     margin-left: 50px;
     padding:0 10px 10px 0;
 }
-.flex-body h4{
-    background: #3E497A;
-}
 .flex-body div:not([class*="flex"]) {
     border: 0px solid;
     flex: 1 1 50px;
     width: 150px;
 }
 .fa-brands{
-  font-size: 75px;
+  font-size: 2.5em;
+  color: white;
+}
+.fa-instagram{
+  padding-left: 10px;
 }
 .footer-bottom {
   background-color: #F1D00A;
@@ -344,13 +342,14 @@ footer{
   padding-bottom: 10px;
   padding-left: 18px;
 }
+
 /* Scroll TO Top Button CSS */
 .scroll-button a {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  color: #fff;
-  background: var(--navy);
+  color: var(--navy);
+  background: var(--yellow);
   padding: 7px 12px;
   font-size: 18px;
   border-radius: 6px;
