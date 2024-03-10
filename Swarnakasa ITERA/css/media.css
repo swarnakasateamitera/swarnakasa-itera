@@ -37,8 +37,8 @@
 
 @media (max-width: 750px) {
 
-  .home{
-    background-position: -40rem;
+  .parallax-image {
+    background-position: -15em;
   }
   nav .navbar {
     width: 90%;
