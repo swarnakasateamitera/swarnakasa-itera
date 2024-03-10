@@ -11,6 +11,9 @@ window.onscroll = function () {
     nav.classList.remove("sticky");
     scrollBtn.style.display = "none";
   }
+  //parralax
+  let offset = window.pageYOffset;
+  document.querySelector('.parallax-image').style.backgroundPositionY = offset * 0.2 + 'px';
 };
 
 // Side NavIgation Menu JS Code
