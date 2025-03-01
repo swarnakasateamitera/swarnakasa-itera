@@ -5,10 +5,9 @@
   }
 }
 
-
 @media (max-width: 1000px) {
-  body{
-     overflow-x:hidden 
+  body {
+    overflow-x: hidden;
   }
   .about .about-details {
     justify-content: center;
@@ -21,7 +20,7 @@
   }
   .about-details .right {
     width: 100%;
-/*    margin: 40px 0;*/
+    /*    margin: 40px 0;*/
   }
   .services .boxes .box {
     margin: 20px 0;
@@ -36,7 +35,6 @@
 }
 
 @media (max-width: 750px) {
-
   .parallax-image {
     background-position: -15em;
   }
@@ -49,7 +47,7 @@
     top: 0;
     background: var(--navy);
     height: 100vh;
-/*    max-width: 400px;*/
+    /*    max-width: 400px;*/
     width: 100%;
     padding-top: 60px;
     flex-direction: column;
@@ -102,7 +100,7 @@
   .contact .text {
     width: 100%;
   }
-	
+
   /*  Division  */
   .division .division-title h1 {
     font-size: 2rem;
@@ -111,9 +109,9 @@
   .yellow,
   .blue {
     font-size: 10px;
-    width: 100%!important;
+    width: 100% !important;
     height: 1rem;
-    border-radius: 0!important;
+    border-radius: 0 !important;
     padding: 1.4rem;
     margin-bottom: 1rem;
   }
