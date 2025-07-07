@@ -1,301 +1,2429 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
+<html lang="id" x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }" :class="{ 'dark': darkMode }">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Swarnakasa ITERA</title>
-  <meta name="title" content="Swarnakasa ITERA" />
-  <meta name="description"
-    content="Nama Swarnakasa berasal dari kata 'Swarna' dan 'Akasa' yang berarti 'Emas di Angkasa'. Nama ini mencerminkan tujuan tim untuk membawa nama baik ITERA di kancah Perlombaan Robotika Penerbang dan UAV." />
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://metatags.io/" />
-  <meta property="og:title" content="Swarnakasa ITERA" />
-  <meta property="og:description"
-    content="Nama Swarnakasa berasal dari kata 'Swarna' dan 'Akasa' yang berarti 'Emas di Angkasa'. Nama ini mencerminkan tujuan tim untuk membawa nama baik ITERA di kancah Perlombaan Robotika Penerbang dan UAV." />
-  <meta property="og:image" content="./images/bg.jpg" />
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://metatags.io/" />
-  <meta property="twitter:title" content="Swarnakasa ITERA" />
-  <meta property="twitter:description"
-    content="Nama Swarnakasa berasal dari kata 'Swarna' dan 'Akasa' yang berarti 'Emas di Angkasa'. Nama ini mencerminkan tujuan tim untuk membawa nama baik ITERA di kancah Perlombaan Robotika Penerbang dan UAV." />
-  <meta property="twitter:image" content="./images/bg.jpg" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Swarnakasa ITERA - Unit Kegiatan Mahasiswa UAV & Teknologi Penerbangan</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Swarnakasa ITERA adalah Unit Kegiatan Mahasiswa yang fokus pada pengembangan teknologi UAV, drone, dan penerbangan. Bergabunglah dengan komunitas inovator teknologi penerbangan di Institut Teknologi Sumatera." />
+    <meta name="keywords" content="Swarnakasa, ITERA, UKM, UAV, drone, teknologi penerbangan, mahasiswa, Institut Teknologi Sumatera, robotika, inovasi" />
+    <meta name="author" content="Swarnakasa ITERA" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Indonesian" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Swarnakasa ITERA - Unit Kegiatan Mahasiswa UAV & Teknologi Penerbangan" />
+    <meta property="og:description" content="Unit Kegiatan Mahasiswa yang fokus pada pengembangan teknologi UAV, drone, dan penerbangan di Institut Teknologi Sumatera." />
+    <meta property="og:image" content="/images/logo.png" />
+    <meta property="og:url" content="https://swarnakasa-itera.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Swarnakasa ITERA" />
+    <meta property="og:locale" content="id_ID" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Swarnakasa ITERA - Unit Kegiatan Mahasiswa UAV" />
+    <meta name="twitter:description" content="Unit Kegiatan Mahasiswa yang fokus pada pengembangan teknologi UAV, drone, dan penerbangan di Institut Teknologi Sumatera." />
+    <meta name="twitter:image" content="/images/logo.png" />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#21325e" />
+    <meta name="msapplication-TileColor" content="#21325e" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    
+    <link rel="icon" href="/images/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/logo.png" />
+    <link rel="canonical" href="https://swarnakasa-itera.com" />
+    
+    <!-- Additional SEO Links -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Swarnakasa ITERA News Feed" href="/feed.xml" />
+    <link rel="robots" href="/robots.txt" />
+    
+    <!-- Performance & Security Meta Tags -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Swarnakasa ITERA" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&family=Poppins:wght@200;400;600;700&display=swap" as="style" />
+    <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" />
 
-  <!--  -->
-  <link rel="icon" href="./images/logo swarnakasa.png" type="image/png" sizes="8x8">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&family=Poppins:wght@200;400;600;700&display=swap"
-    rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&family=Poppins:wght@200;400;600;700&display=swap" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-  <!-- Animate -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/media.css" />
-  <link rel="stylesheet" href="./css/division.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: { 'navy': '#21325e', 'light-blue': '#3e497a', 'yellow-custom': '#f1d00a' },
+            fontFamily: { 'sans': ['Poppins', 'sans-serif'], 'heading': ['Plus Jakarta Sans', 'sans-serif'] },
+          }
+        }
+      }
+    </script>
+    
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Swarnakasa ITERA",
+      "alternateName": "Unit Kegiatan Mahasiswa Swarnakasa Institut Teknologi Sumatera",
+      "url": "https://swarnakasa-itera.com",
+      "logo": "https://swarnakasa-itera.com/images/logo.png",
+      "description": "Unit Kegiatan Mahasiswa yang fokus pada pengembangan teknologi UAV, drone, dan penerbangan di Institut Teknologi Sumatera",
+      "foundingDate": "2020",
+      "areaServed": "Indonesia",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ID",
+        "addressRegion": "Lampung Selatan",
+        "addressLocality": "Lampung Selatan"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": ["Indonesian", "English"]
+      },
+      "sameAs": [
+        "https://instagram.com/swarnakasa.itera",
+        "https://www.linkedin.com/company/swarnakasa-itera/"
+      ],
+      "parentOrganization": {
+        "@type": "EducationalOrganization",
+        "name": "Institut Teknologi Sumatera",
+        "url": "https://itera.ac.id"
+      },
+      "keywords": ["UAV", "drone", "teknologi penerbangan", "mahasiswa", "ITERA", "robotika", "inovasi"],
+      "image": "https://swarnakasa-itera.com/images/logo.png"
+    }
+    </script>
+
+    <style>
+      html { scroll-behavior: smooth; }
+      ::-webkit-scrollbar { width: 10px; }
+      ::-webkit-scrollbar-track { background: #f1f1f1; }
+      ::-webkit-scrollbar-thumb { background: #6e93f7; border-radius: 12px; }
+      .dark ::-webkit-scrollbar-thumb { background: #3e497a; }
+
+      /* ===== ACCESSIBILITY UTILITIES ===== */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      
+      .focus\\:not-sr-only:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: inherit;
+        margin: inherit;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+      }
+      /* ===== TEAM SECTION STYLING ===== */
+      #team {
+        position: relative;
+        /* Enhanced background untuk mode siang */
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.98) 100%);
+        border-top: 4px solid rgba(33, 50, 94, 0.1);
+        border-bottom: 4px solid rgba(33, 50, 94, 0.1);
+        box-shadow: 
+          0 -10px 30px rgba(33, 50, 94, 0.05),
+          0 10px 30px rgba(33, 50, 94, 0.05),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8),
+          inset 0 -1px 0 rgba(255, 255, 255, 0.8);
+      }
+
+      /* Dark mode untuk section team */
+      .dark #team {
+        background: linear-gradient(135deg, rgba(62, 73, 122, 0.9) 0%, rgba(33, 50, 94, 0.95) 100%) !important;
+        border-top-color: rgba(241, 208, 10, 0.2);
+        border-bottom-color: rgba(241, 208, 10, 0.2);
+        box-shadow: 
+          0 -10px 30px rgba(0, 0, 0, 0.2),
+          0 10px 30px rgba(0, 0, 0, 0.2),
+          inset 0 1px 0 rgba(241, 208, 10, 0.1),
+          inset 0 -1px 0 rgba(241, 208, 10, 0.1);
+      }
+
+      /* Tambahan efek visual untuk section header */
+      #team h2 {
+        position: relative;
+        text-shadow: 0 2px 4px rgba(33, 50, 94, 0.1);
+      }
+
+      .dark #team h2 {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      /* ===== TEAM SECTION ANIMATIONS - ANTI STUCK SYSTEM ===== */
+      .team-card {
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        transform: translateY(30px);
+        position: relative;
+        overflow: visible !important;
+        cursor: pointer;
+        opacity: 0;
+        padding: 1.5rem;
+        will-change: transform, opacity, box-shadow; /* GPU optimization */
+        /* Anti-stuck mechanism */
+        animation-fill-mode: both !important;
+        animation-play-state: running !important;
+        
+        /* Background dan border untuk mode siang */
+        background: rgba(255, 255, 255, 0.9);
+        border: 2px solid rgba(33, 50, 94, 0.1);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(33, 50, 94, 0.08);
+      }
+      
+
+      /* Reset state untuk mencegah konflik */
+      .team-card.animation-reset {
+        animation: none !important;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+      }
+
+      /* Hover state dengan kontrol ketat */
+      .team-card:hover {
+        transform: translateY(-15px) scale(1.03) !important; /* Lebih kecil untuk smooth */
+        box-shadow: 0 25px 50px rgba(33, 50, 94, 0.15) !important;
+        z-index: 10;
+        animation: none !important; /* Force stop semua animasi */
+        
+        /* Enhanced background saat hover untuk mode siang */
+        background: rgba(255, 255, 255, 0.95);
+        border-color: rgba(241, 208, 10, 0.3);
+      }
+
+      /* Dark mode card improvements */
+      .dark .team-card {
+        background: rgba(62, 73, 122, 0.8) !important;
+        border: 2px solid rgba(241, 208, 10, 0.2) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .dark .team-card:hover {
+        background: rgba(62, 73, 122, 0.9) !important;
+        border-color: rgba(241, 208, 10, 0.4) !important;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3) !important;
+      }
+
+      /* Container untuk image dengan overflow visible */
+      .team-image-container {
+        position: relative;
+        overflow: visible;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem; /* Extra padding untuk animasi */
+      }
+
+      .team-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(241, 208, 10, 0.1), transparent);
+        transition: left 0.6s ease;
+        z-index: 1;
+        border-radius: 1rem;
+        /* Anti-stuck mechanism */
+        will-change: left;
+        transform: translateZ(0); /* Force GPU rendering */
+      }
+
+      .team-card:hover::before {
+        left: 100%;
+      }
+
+      /* Reset mechanism untuk border animation */
+      .team-card.animation-reset::before {
+        left: -100% !important;
+        transition: none !important;
+      }
+
+      /* Smooth transition saat card tidak di-hover */
+      .team-card:not(:hover)::before {
+        left: -100%;
+        transition: left 0.3s ease !important;
+      }
+
+      /* Enhanced background untuk mode siang */
+      .team-card {
+        background: linear-gradient(135deg, 
+                   rgba(255, 255, 255, 0.95) 0%, 
+                   rgba(248, 250, 252, 0.9) 50%, 
+                   rgba(255, 255, 255, 0.95) 100%) !important;
+        border: 2px solid rgba(33, 50, 94, 0.08) !important;
+        box-shadow: 0 4px 20px rgba(33, 50, 94, 0.06), 
+                    0 1px 3px rgba(33, 50, 94, 0.08) !important;
+      }
+
+      .team-card:hover {
+        background: linear-gradient(135deg, 
+                   rgba(255, 255, 255, 0.98) 0%, 
+                   rgba(241, 208, 10, 0.02) 30%, 
+                   rgba(255, 255, 255, 0.98) 100%) !important;
+        border: 2px solid rgba(241, 208, 10, 0.2) !important;
+        box-shadow: 0 25px 50px rgba(33, 50, 94, 0.12), 
+                    0 10px 20px rgba(241, 208, 10, 0.1) !important;
+      }
+
+      .team-card:hover {
+        transform: translateY(-15px) scale(1.05);
+        box-shadow: 0 25px 50px rgba(33, 50, 94, 0.2);
+        z-index: 10;
+      }
+
+      /* Team Image Animation - Focus pada border bulat dengan dark mode support yang optimal */
+      .team-card img {
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important; /* Lebih smooth dan tidak konflik */
+        position: relative;
+        z-index: 2;
+        border-radius: 50% !important; /* Force circular shape */
+        overflow: hidden;
+        /* Border default dengan kontras tinggi */
+        border: 4px solid #f1d00a !important;
+        will-change: transform, border-width, box-shadow; /* GPU acceleration */
+      }
+
+      /* Dark mode border dengan kontras maksimal */
+      .dark .team-card img {
+        border: 5px solid #f1d00a !important; /* Lebih tebal di dark mode */
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4), 
+                    0 0 0 6px rgba(241, 208, 10, 0.2),
+                    0 4px 15px rgba(0, 0, 0, 0.3) !important; /* Triple layer shadow untuk kontras maksimal */
+        filter: brightness(1.05) contrast(1.1); /* Sedikit brightening */
+      }
+
+      .team-card:hover img {
+        transform: scale(1.12) !important; /* Lebih kecil untuk smooth effect */
+        border: 6px solid #f1d00a !important; /* Konsisten color, ubah width */
+        box-shadow: 0 0 0 4px rgba(241, 208, 10, 0.5), 
+                    0 8px 25px rgba(241, 208, 10, 0.4) !important;
+        filter: brightness(1.15) contrast(1.2) !important;
+      }
+
+      /* Dark mode hover dengan kontras extreme */
+      .dark .team-card:hover img {
+        border: 7px solid #f1d00a !important; /* Lebih tebal saat hover */
+        box-shadow: 0 0 0 4px rgba(241, 208, 10, 0.6), 
+                    0 0 0 8px rgba(255, 255, 255, 0.3), 
+                    0 0 0 12px rgba(241, 208, 10, 0.2),
+                    0 8px 30px rgba(241, 208, 10, 0.7) !important; /* Quadruple layer */
+        filter: brightness(1.25) contrast(1.3) !important;
+      }
+
+      /* Team Name Animation dengan kontras untuk background */
+      .team-card h4 {
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        color: #21325e !important; /* Navy untuk kontras di mode siang */
+      }
+
+      .team-card h4::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #f1d00a;
+        transition: all 0.4s ease;
+        transform: translateX(-50%);
+      }
+
+      .team-card:hover h4 {
+        color: #21325e !important;
+        transform: translateY(-2px);
+      }
+
+      .team-card:hover h4::after {
+        width: 100%;
+      }
+
+      /* Dark mode text styling */
+      .dark .team-card h4 {
+        color: #ffffff !important;
+      }
+
+      .dark .team-card:hover h4 {
+        color: #f1d00a !important;
+      }
+
+      /* Team Position Animation dengan kontras */
+      .team-card p {
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+        color: #f1d00a !important; /* Yellow tetap kontras di kedua mode */
+      }
+
+      .team-card:hover p {
+        color: #dfd033 !important;
+        transform: translateY(-2px);
+        font-weight: 600;
+      }
+
+      /* Dark mode position styling */
+      .dark .team-card p {
+        color: #f1d00a !important;
+      }
+
+      .dark .team-card:hover p {
+        color: #dfd033 !important;
+      }
+
+      /* Staggered Animation for Team Cards */
+      .team-card:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+
+      .team-card:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .team-card:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .team-card:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      /* Floating Animation untuk mencegah konflik animasi - IMPROVED */
+      .team-card.floating {
+        animation: teamFloatSmooth 3.5s ease-in-out infinite !important;
+      }
+
+      .team-card:hover {
+        animation: none !important; /* Force stop semua animasi saat hover */
+      }
+
+      .team-card:not(:hover) {
+        /* Delayed restart floating untuk smooth transition */
+        animation: teamFloatSmooth 3.5s ease-in-out infinite 0.3s !important;
+      }
+
+      /* Reset mechanism untuk mencegah stuck */
+      .team-card.reset-animation {
+        animation: none !important;
+        transform: translateY(0) scale(1) !important;
+      }
+
+      /* Team Card Click Effect */
+      .team-card:active {
+        transform: translateY(-10px) scale(0.98);
+        transition: all 0.15s ease;
+      }
+
+      /* Keyframe Animations for Team - IMPROVED */
+      @keyframes teamFloatSmooth {
+        0%, 100% { 
+          transform: translateY(0px); 
+        }
+        50% { 
+          transform: translateY(-6px); 
+        }
+      }
+
+      @keyframes teamPulse {
+        0%, 100% { 
+          border-width: 5px;
+          box-shadow: 0 0 0 0 rgba(241, 208, 10, 0.8);
+        }
+        50% { 
+          border-width: 6px;
+          box-shadow: 0 0 0 8px rgba(241, 208, 10, 0.2);
+        }
+      }
+
+      /* Dark mode pulse animation dengan kontras tinggi */
+      .dark .team-card.pulse-border img {
+        animation: teamPulseDarkImproved 1.5s ease-in-out infinite !important;
+      }
+
+      @keyframes teamPulseDarkImproved {
+        0%, 100% { 
+          border: 6px solid #f1d00a !important;
+          box-shadow: 0 0 0 0 rgba(241, 208, 10, 0.9), 
+                      0 0 0 4px rgba(255, 255, 255, 0.4),
+                      0 4px 15px rgba(0, 0, 0, 0.3) !important;
+        }
+        50% { 
+          border: 8px solid #f1d00a !important;
+          box-shadow: 0 0 0 8px rgba(241, 208, 10, 0.4), 
+                      0 0 0 12px rgba(255, 255, 255, 0.2),
+                      0 4px 20px rgba(0, 0, 0, 0.4) !important;
+        }
+      }
+
+      /* Enhanced border animation dengan smooth circle effect */
+      .team-card.pulse-border img {
+        animation: teamPulse 1.5s ease-in-out infinite !important;
+        border-radius: 50% !important;
+      }
+
+      /* Additional Team Animations */
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes teamCardHover {
+        0%, 100% { 
+          transform: translateY(-15px) scale(1.05);
+        }
+        50% { 
+          transform: translateY(-18px) scale(1.05);
+        }
+      }
+      
+      @keyframes teamCardClick {
+        0%, 20%, 60%, 100% {
+          transform: translateY(-12px) scale(1.03);
+        }
+        40% {
+          transform: translateY(-20px) scale(1.07);
+        }
+        80% {
+          transform: translateY(-16px) scale(1.05);
+        }
+      }
+
+      /* Mobile Responsive untuk Team Cards */
+      @media (max-width: 768px) {
+        .team-card {
+          padding: 1rem 0; /* Kurangi padding di mobile */
+        }
+        
+        .team-image-container {
+          padding: 0.5rem; /* Kurangi padding container di mobile */
+        }
+        
+        .team-card:hover {
+          transform: translateY(-8px) scale(1.03);
+        }
+        
+        .team-card:hover img {
+          transform: scale(1.08); /* Lebih kecil di mobile */
+          border-width: 5px;
+        }
+        
+        .team-card.animated {
+          animation: slideInUp 0.6s ease forwards, teamFloat 4s ease-in-out infinite 1s;
+        }
+      }
+        .team-card:hover {
+          transform: translateY(-8px) scale(1.03);
+        }
+        
+        .team-card:hover img {
+          transform: scale(1.08); /* Lebih kecil di mobile */
+          border-width: 5px;
+        }
+        
+        .team-card.animated {
+          animation: slideInUp 0.6s ease forwards, teamFloat 4s ease-in-out infinite 1s;
+        }
+      
+
+      /* ===== OVERFLOW PREVENTION & RESPONSIVE FIXES ===== */
+      * {
+        box-sizing: border-box;
+      }
+      
+      html {
+        max-width: 100vw;
+        overflow-x: hidden;
+        position: relative;
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        max-width: 100vw;
+        overflow-x: hidden;
+        position: relative;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Universal container fix */
+      .container {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        box-sizing: border-box;
+      }
+      
+      /* Prevent all sections from causing horizontal overflow */
+      section {
+        max-width: 100vw;
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+        box-sizing: border-box;
+      }
+      
+      /* Special overflow setting untuk team section */
+      section#team {
+        overflow: visible !important; /* Izinkan animasi keluar dari batas */
+        padding-top: 8rem !important;
+        padding-bottom: 8rem !important;
+      }
+      
+      section#team .container {
+        overflow: visible !important;
+      }
+      
+      section#team .team-grid {
+        overflow: visible !important;
+        padding: 3rem 0 !important; /* Extra padding untuk animasi */
+      }
+      
+      /* Fix header/navbar to prevent overflow */
+      header {
+        max-width: 100vw;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+      
+      nav {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+      
+      /* Navbar container fix */
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+      
+      /* Navbar menu responsive */
+      nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      
+      /* Ensure images don't overflow */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      
+      /* Fix grid layouts to prevent overflow */
+      .grid {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      
+      /* Fix all flex containers */
+      .flex {
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      
+      /* Fix swiper gallery overflow */
+      .swiper-container {
+        max-width: 100vw;
+        overflow: hidden;
+      }
+      
+      .gallery-swiper {
+        max-width: 100vw;
+        overflow: visible;
+        padding-bottom: 80px;
+      }
+      
+      .swiper-wrapper {
+        max-width: none;
+      }
+      
+      /* Mobile menu responsive fixes */
+      @media (max-width: 768px) {
+        .container {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        
+        /* Ensure mobile menu doesn't overflow */
+        .md\\:hidden {
+          max-width: calc(100vw - 2rem);
+          width: calc(100vw - 2rem);
+          box-sizing: border-box;
+          overflow: hidden;
+        }
+        
+        /* Mobile navbar fixes */
+        nav .container {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        
+        /* Mobile grid adjustments */
+        .grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        
+        /* Mobile gallery fixes */
+        .gallery-swiper .swiper-slide {
+          width: 80vw !important;
+          max-width: 280px;
+        }
+      }
+      
+      /* Extra small screens */
+      @media (max-width: 480px) {
+        .container {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+        }
+        
+        nav .container {
+          padding-left: 0.75rem;
+          padding-right: 0.75rem;
+        }
+        
+        .gallery-swiper .swiper-slide {
+          width: 70vw !important;
+          max-width: 240px;
+        }
+      }
+
+      /* Gaya untuk Galeri Coverflow dengan scroll horizontal yang aman */
+      .gallery-swiper {
+        width: 100%;
+        max-width: 100vw;
+        overflow: visible;
+        padding-bottom: 80px;
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+      
+      .gallery-swiper .swiper-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      
+      .gallery-swiper .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 320px;
+        max-width: 320px;
+        height: 240px;
+        margin: 0 12px;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+        position: relative;
+        box-sizing: border-box;
+      }
+      
+      .gallery-swiper .swiper-slide img {
+        border-radius: 12px;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 12px rgba(33,50,94,0.08);
+        max-width: 100%;
+      }
+      /* Scrollbar custom untuk galeri */
+      .gallery-swiper::-webkit-scrollbar {
+        height: 10px;
+      }
+      .gallery-swiper::-webkit-scrollbar-thumb {
+        background: #f1d00a;
+        border-radius: 8px;
+      }
+      .gallery-swiper::-webkit-scrollbar-track {
+        background: #e5e7eb;
+      }
+      /* Fancybox close button always visible and bigger */
+      .f-button.is-close-btn {
+        z-index: 999999 !important;
+        position: fixed !important;
+        top: 24px !important;
+        right: 24px !important;
+        width: 56px !important;
+        height: 56px !important;
+        background: #bfa004 !important;
+        color: #fff !important;
+        border-radius: 50% !important;
+        opacity: 1 !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 12px rgba(33,50,94,0.18);
+      }
+      /* Pastikan toolbar Fancybox tidak pernah hidden */
+      .fancybox__toolbar, .fancybox__toolbar * {
+        opacity: 1 !important;
+        visibility: visible !important;
+        z-index: 999999 !important;
+      }
+      /* Pastikan tombol close tidak pernah hidden */
+      .f-button.is-close-btn {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+      }
+      .f-button.is-close-btn svg {
+        width: 36px !important;
+        height: 36px !important;
+      }
+      /* Overlay Fancybox custom agar gelap dan gambar di tengah */
+      .fancybox__backdrop {
+        background: rgba(0,0,0,0.92) !important;
+        z-index: 99998 !important;
+      }
+      .fancybox__slide {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .fancybox__toolbar {
+        z-index: 99999 !important;
+      }
+      .fancybox__content {
+        box-shadow: 0 8px 32px rgba(33,50,94,0.25);
+        border-radius: 18px;
+        background: transparent !important;
+      }
+      .fancybox__content img {
+        border-radius: 16px;
+        max-width: 90vw;
+        max-height: 80vh;
+        box-shadow: 0 2px 24px rgba(33,50,94,0.18);
+      }
+      
+      /* ===== CUSTOM GALLERY MODAL STYLES ===== */
+      /* Modal Gallery Zoom */
+      #gallery-modal {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+      
+      #gallery-modal.flex {
+        display: flex !important;
+      }
+      
+      /* Modal Image Styling */
+      #modal-img {
+        max-width: 95vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+      }
+      
+      /* Loading Animation */
+      #modal-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      /* Close Button Hover Effects */
+      #modal-close:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 25px rgba(241, 208, 10, 0.3);
+      }
+      
+      /* Gallery Item Hover Enhancement */
+      .gallery-item {
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        cursor: pointer;
+      }
+      
+      .gallery-item:hover {
+        transform: translateY(-5px);
+        filter: brightness(1.1);
+      }
+      
+      .gallery-item:active {
+        transform: translateY(-2px) scale(0.98);
+      }
+      
+      /* Focus states for accessibility */
+      #modal-close:focus {
+        outline: 2px solid #f1d00a;
+        outline-offset: 2px;
+      }
+      
+      /* Prevent image selection/dragging */
+      .gallery-img {
+        user-select: none;
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+      }
+      
+      /* Modal Open Body Style */
+      body.modal-open {
+        overflow: hidden;
+        height: 100vh;
+      }
+      
+      /* ===== ENHANCED GALLERY CONTROLS STYLES ===== */
+      
+      /* Fixed Gallery Pagination (tidak ikut scroll) */
+      .gallery-pagination {
+        position: absolute !important;
+        bottom: -50px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: auto !important;
+        height: auto !important;
+        z-index: 10 !important;
+      }
+      
+      /* Custom Pagination Dots */
+      .gallery-pagination .swiper-pagination-bullet {
+        width: 12px !important;
+        height: 12px !important;
+        background: rgba(255, 255, 255, 0.4) !important;
+        border: 2px solid #f1d00a !important;
+        opacity: 1 !important;
+        margin: 0 6px !important;
+        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) !important;
+      }
+      
+      .gallery-pagination .swiper-pagination-bullet-active {
+        background: #f1d00a !important;
+        transform: scale(1.2) !important;
+        box-shadow: 0 0 10px rgba(241, 208, 10, 0.5) !important;
+      }
+      
+      /* Navigation Arrows (fixed position) */
+      .gallery-nav-prev,
+      .gallery-nav-next {
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: 50px !important;
+        height: 50px !important;
+        background: rgba(241, 208, 10, 0.9) !important;
+        border-radius: 50% !important;
+        color: #21325e !important;
+        z-index: 10 !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 20px !important;
+        font-weight: bold !important;
+        transition: all 0.3s ease !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+      
+      .gallery-nav-prev {
+        left: 20px !important;
+      }
+      
+      .gallery-nav-next {
+        right: 20px !important;
+      }
+      
+      /* Show arrows on gallery hover */
+      .gallery-swiper:hover .gallery-nav-prev,
+      .gallery-swiper:hover .gallery-nav-next {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+      
+      .gallery-nav-prev:hover,
+      .gallery-nav-next:hover {
+        background: #f1d00a !important;
+        transform: translateY(-50%) scale(1.1) !important;
+        box-shadow: 0 4px 15px rgba(241, 208, 10, 0.4) !important;
+      }
+      
+      /* Progress Bar (inovasi tambahan) */
+      .gallery-progress-bar {
+        position: absolute !important;
+        bottom: -20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 200px !important;
+        height: 3px !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-radius: 2px !important;
+        overflow: hidden !important;
+        z-index: 5 !important;
+      }
+      
+      .gallery-progress-fill {
+        height: 100% !important;
+        background: linear-gradient(90deg, #f1d00a, #21325e) !important;
+        width: 0% !important;
+        transition: width 0.3s ease !important;
+        border-radius: 2px !important;
+      }
+      
+      /* Gallery Container Spacing */
+      .gallery-swiper {
+        overflow: visible !important;
+        padding-bottom: 80px !important;
+        position: relative !important;
+      }
+      
+      /* Mobile Responsive untuk Gallery Controls */
+      @media (max-width: 768px) {
+        .gallery-swiper {
+          padding-bottom: 60px;
+        }
+        
+        .gallery-swiper .swiper-slide {
+          width: 280px !important;
+          max-width: 280px !important;
+          height: 180px !important;
+          margin: 0 8px;
+        }
+        
+        .gallery-nav-prev,
+        .gallery-nav-next {
+          width: 40px !important;
+          height: 40px !important;
+          font-size: 16px !important;
+        }
+        
+        .gallery-nav-prev {
+          left: 10px !important;
+        }
+        
+        .gallery-nav-next {
+          right: 10px !important;
+        }
+        
+        .gallery-pagination {
+          bottom: -40px !important;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .gallery-swiper .swiper-slide {
+          width: 240px !important;
+          max-width: 240px !important;
+          height: 160px !important;
+          margin: 0 6px;
+        }
+        
+        .gallery-nav-prev {
+          left: 5px !important;
+        }
+        
+        .gallery-nav-next {
+          right: 5px !important;
+        }
+        
+        .gallery-pagination {
+          bottom: -40px !important;
+        }
+        
+        .gallery-pagination .swiper-pagination-bullet {
+          width: 10px !important;
+          height: 10px !important;
+          margin: 0 4px !important;
+        }
+        
+        .gallery-progress-bar {
+          width: 150px !important;
+          bottom: -15px !important;
+        }
+        
+        .gallery-swiper {
+          padding-bottom: 60px !important;
+        }
+        
+        #modal-img {
+          max-width: 98vw;
+          max-height: 85vh;
+        }
+        
+        #modal-close {
+          top: 1rem;
+          right: 1rem;
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+
+      /* Modal Open Body Style */
+      body.modal-open {
+        overflow: hidden;
+        height: 100vh;
+      }
+
+      /* Pastikan modal terlihat ketika flex */
+      #gallery-modal.flex {
+        display: flex !important;
+      }
+
+      /* ===== CUSTOM STYLES ===== */
+      /* Section Divisi Penelitian & Pengembangan Swarnakasa */
+      #divisi {
+        background-color: #ffffff;
+        color: #21325e;
+      }
+      
+      #divisi h2 {
+        color: #f1d00a;
+      }
+      
+      #divisi .icon-container {
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        border-radius: 50%;
+        background: rgba(241, 208, 10, 0.1);
+      }
+      
+      #divisi .icon-container svg {
+        color: #f1d00a;
+        width: 28px;
+        height: 28px;
+      }
+
+      /* ===== DIVISION CARD ANIMATIONS ===== */
+      .division-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: translateY(0);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .division-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(241, 208, 10, 0.1), transparent);
+        transition: left 0.6s ease;
+      }
+
+      .division-card:hover::before {
+        left: 100%;
+      }
+
+      .division-card:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 20px 40px rgba(33, 50, 94, 0.15);
+      }
+
+      /* Icon Animation */
+      .division-icon {
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        position: relative;
+      }
+
+      .division-card:hover .division-icon {
+        transform: scale(1.2) rotate(5deg);
+        background: linear-gradient(135deg, #f1d00a, #e6c309);
+        box-shadow: 0 8px 25px rgba(241, 208, 10, 0.4);
+      }
+
+      .division-icon i {
+        transition: all 0.3s ease;
+      }
+
+      .division-card:hover .division-icon i {
+        transform: scale(1.1);
+        animation: iconPulse 1.5s infinite;
+      }
+
+      /* Title Animation */
+      .division-title {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .division-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #f1d00a;
+        transition: all 0.4s ease;
+        transform: translateX(-50%);
+      }
+
+      .division-card:hover .division-title {
+        color: #dfd033;
+      }
+
+      .division-card:hover .division-title::after {
+        width: 100%;
+      }
+
+      /* Description Animation */
+      .division-description {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .division-card:hover .division-description {
+        color: #dfd033;
+        transform: translateY(-2px);
+      }
+
+      /* Keyframe Animations */
+      @keyframes iconPulse {
+        0%, 100% { transform: scale(1.1); }
+        50% { transform: scale(1.2); }
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-5px); }
+      }
+
+      @keyframes fadeInScale {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Staggered Animation for Cards */
+      .division-card:nth-child(1) {
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: 0.1s;
+        opacity: 0;
+      }
+
+      .division-card:nth-child(2) {
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: 0.3s;
+        opacity: 0;
+      }
+
+      .division-card:nth-child(3) {
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: 0.5s;
+        opacity: 0;
+      }
+
+      /* Section Title Animation */
+      .section-title {
+        animation: fadeInScale 0.8s ease forwards;
+        opacity: 0;
+      }
+
+      .section-subtitle {
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+
+      /* Floating Animation for Icons when not hovered */
+      .division-icon {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .division-card:hover .division-icon {
+        animation: none; /* Stop floating when hovered */
+      }
+
+      /* Responsive Animations */
+      @media (max-width: 768px) {
+        .division-card:hover {
+          transform: translateY(-8px) scale(1.02);
+        }
+        
+        .division-card:hover .division-icon {
+          transform: scale(1.15) rotate(3deg);
+        }
+      }
+
+      /* ===== ABOUT SECTION ANIMATIONS ===== */
+      /* About card animations similar to division cards */
+      .about-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: translateY(0);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(241, 208, 10, 0.1), transparent);
+        transition: left 0.6s ease;
+      }
+
+      .about-card:hover::before {
+        left: 100%;
+      }
+
+      .about-card:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 20px 40px rgba(33, 50, 94, 0.15);
+      }
+
+      /* About Icon Animation */
+      .about-icon {
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        position: relative;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .about-card:hover .about-icon {
+        transform: scale(1.2) rotate(10deg);
+        background: linear-gradient(135deg, #f1d00a, #e6c309);
+        box-shadow: 0 8px 25px rgba(241, 208, 10, 0.4);
+        animation: none; /* Stop floating when hovered */
+      }
+
+      .about-icon svg {
+        transition: all 0.3s ease;
+      }
+
+      .about-card:hover .about-icon svg {
+        transform: scale(1.1);
+        animation: iconPulse 1.5s infinite;
+      }
+
+      /* About Title Animation */
+      .about-title {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #f1d00a;
+        transition: all 0.4s ease;
+        transform: translateX(-50%);
+      }
+
+      .about-card:hover .about-title {
+        color: #dfd033;
+      }
+
+      .about-card:hover .about-title::after {
+        width: 100%;
+      }
+
+      /* About Description Animation */
+      .about-description {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .about-card:hover .about-description {
+        color: #dfd033;
+        transform: translateY(-2px);
+      }
+
+      /* Staggered Animation for About Cards */
+      .about-card:nth-child(1) {
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: 0.2s;
+        opacity: 0;
+      }
+
+      .about-card:nth-child(2) {
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: 0.4s;
+        opacity: 0;
+      }
+
+      .about-card:nth-child(3) {
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: 0.6s;
+        opacity: 0;
+      }
+
+      /* About Section Title Animation */
+      .about-section-title {
+        animation: fadeInScale 0.8s ease forwards;
+        opacity: 0;
+      }
+
+      .about-section-subtitle {
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: 0.1s;
+        opacity: 0;
+      }
+
+      /* Special animations for each about card type */
+      .about-card:nth-child(1):hover .about-icon {
+        animation: techSpin 2s linear infinite;
+      }
+
+      .about-card:nth-child(2):hover .about-icon {
+        animation: teamPulse 1.5s ease-in-out infinite;
+      }
+
+      .about-card:nth-child(3):hover .about-icon {
+        animation: achievementBounce 1s ease-in-out infinite;
+      }
+
+      /* Additional keyframes for about section */
+      @keyframes techSpin {
+        0% { transform: scale(1.2) rotate(10deg); }
+        100% { transform: scale(1.2) rotate(370deg); }
+      }
+
+      @keyframes teamPulse {
+        0%, 100% { transform: scale(1.2) rotate(10deg); }
+        50% { transform: scale(1.3) rotate(10deg); }
+      }
+
+      @keyframes achievementBounce {
+        0%, 100% { transform: scale(1.2) rotate(10deg) translateY(0); }
+        50% { transform: scale(1.3) rotate(10deg) translateY(-5px); }
+      }
+
+      /* Responsive About Animations */
+      @media (max-width: 768px) {
+        .about-card:hover {
+          transform: translateY(-8px) scale(1.02);
+        }
+        
+        .about-card:hover .about-icon {
+          transform: scale(1.15) rotate(5deg);
+        }
+      }
+
+      /* ===== ACHIEVEMENTS SECTION ANIMATIONS ===== */
+      /* Achievement card hover animations */
+      .achievement-card {
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: scale(1);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .achievement-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(241, 208, 10, 0.08), transparent);
+        transition: left 0.5s ease;
+        z-index: 1;
+      }
+
+      .achievement-card:hover::before {
+        left: 100%;
+      }
+
+      .achievement-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(33, 50, 94, 0.15);
+        z-index: 2;
+        position: relative;
+      }
+
+      /* Achievement icon animation */
+      .achievement-icon {
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .achievement-card:hover .achievement-icon {
+        transform: scale(1.15) rotate(5deg);
+        color: #e6c309;
+      }
+
+      .achievement-card:hover .achievement-icon svg {
+        filter: drop-shadow(0 0 8px rgba(241, 208, 10, 0.4));
+      }
+
+      /* Achievement title animation */
+      .achievement-title {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .achievement-card:hover .achievement-title {
+        color: #dfd033;
+        transform: translateY(-2px);
+      }
+
+      /* Achievement year badge animation */
+      .achievement-year {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .achievement-card:hover .achievement-year {
+        transform: scale(1.1);
+        text-shadow: 0 0 10px rgba(241, 208, 10, 0.5);
+      }
+
+      /* Achievement description animation */
+      .achievement-description {
+        transition: all 0.3s ease;
+      }
+
+      .achievement-card:hover .achievement-description {
+        color: #dfd033;
+        transform: translateY(-1px);
+      }
+
+      /* Click feedback animation */
+      .achievement-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+      }
+
+      /* Responsive achievements animations */
+      @media (max-width: 768px) {
+        .achievement-card:hover {
+          transform: scale(1.03);
+        }
+        
+        .achievement-card:hover .achievement-icon {
+          transform: scale(1.1) rotate(3deg);
+        }
+      }
+      
+      /* ===== BACK TO TOP BUTTON STYLES ===== */
+      #backToTop {
+        /* Base styles already handled by Tailwind classes */
+        backdrop-filter: blur(8px);
+        box-shadow: 0 8px 32px rgba(241, 208, 10, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      #backToTop:hover {
+        box-shadow: 0 12px 40px rgba(241, 208, 10, 0.4);
+        transform: scale(1.1) translateY(-2px);
+      }
+      
+      #backToTop:active {
+        transform: scale(0.95) translateY(0);
+      }
+      
+      /* Enhanced mobile visibility */
+      @media (max-width: 768px) {
+        #backToTop {
+          bottom: 1rem;
+          right: 1rem;
+          width: 3rem;
+          height: 3rem;
+          padding: 0.75rem;
+        }
+        
+        #backToTop svg {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+      }
+      
+      /* Ultra small screens */
+      @media (max-width: 480px) {
+        #backToTop {
+          bottom: 0.75rem;
+          right: 0.75rem;
+          width: 2.75rem;
+          height: 2.75rem;
+          padding: 0.625rem;
+        }
+        
+        #backToTop svg {
+          width: 1rem;
+          height: 1rem;
+        }
+        
+      }
+    </style>
 </head>
+<body class="bg-white dark:bg-navy font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300">
 
-<body>
-  <!-- Move to up button -->
-  <div class="scroll-button">
-    <a href="#home"><i class="fas fa-arrow-up"></i></a>
-  </div>
-  <!-- navigation menu -->
-  <nav>
-    <div class="navbar">
-      <div class="logo">
-        <img src="./images/logo swarnakasa.png" class="img-fluid w-25 h-25" />
-      </div>
-      <ul class="menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#division">Division</a></li>
-        <li><a href="#our-progress">Documentation</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <div class="cancel-btn">
-          <i class="fas fa-times"></i>
-        </div>
-      </ul>
-    </div>
-    <div class="menu-btn">
-      <i class="fas fa-bars"></i>
-    </div>
-  </nav>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:bg-yellow-custom focus:text-navy focus:px-4 focus:py-2 focus:rounded focus:z-[100] focus:font-bold">
+        Skip to main content
+    </a>
 
-  <!-- Home Section Start -->
-  <section class="home" id="home">
-    <div class="parallax-image"></div>
-    <div class="home-content">
-      <div class="text">
-        <div class="text-two">SWARNAKASA ITERA</div>
-        <div class="text-three">Lampaui Batas, Generasi Emas Mengudara</div>
-      </div>
-      <div class="mt-5 d-flex gap-2">
-        <a href="#about"><button class="btn btn-warning p-2">Lets Know Us</button></a>
-        <a href="#our-progress"><button class="btn btn-outline-warning p-2">Our Work</button></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section Start -->
-  <section class="about" id="about">
-    <div class="content">
-      <div class="subheader"><span>ABOUT US</span></div>
-      <div class="about-details">
-        <div class="left">
-          <p>
-            Nama Swarnakasa berasal dari "Swarna"  dan "Akasa" yang bermakna "Emas di Angkasa" mencerminkan semangat kami
-            untuk menjadi komunitas yang unggul dalam bidang UAV dan Aeromodelling. 
+    <header x-data="{ mobileMenuOpen: false, isSticky: false }" @scroll.window="isSticky = window.scrollY > 20" class="fixed top-0 left-0 w-full z-50 transition-all duration-300" :class="{ 'bg-white/80 dark:bg-navy/80 backdrop-blur-sm shadow-md': isSticky, 'bg-transparent': !isSticky }">
+    <nav class="container mx-auto px-6 py-3" role="navigation" aria-label="Main navigation">
+        <div class="flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-3" aria-label="Swarnakasa ITERA - Homepage">
+                <img src="/images/logo.png" alt="Logo Swarnakasa ITERA" class="h-10 w-auto">
+                <span class="text-xl font-bold font-heading text-navy dark:text-white">SWARNAKASA</span>
+            </a>
             
-            Nama ini sesuai dengan visi Swarnakasa yakni, menjadi komunitas yang terdepan dalam riset dan pengembangan 
-            khususnya di bidang Unmanned Areal Vechicle (UAV) dan aeromodelling di Institut Teknologi Sumatera (ITERA) 
-            yang kolaboratif, berkelanjutan, dan berinovasi di kancah nasional hingga internasional di masa depan.
-          </p>
+            <ul class="hidden md:flex items-center space-x-8 font-semibold text-navy dark:text-white" role="menubar">
+                <li role="none"><a href="#home" class="hover:text-yellow-custom transition-colors" role="menuitem">Home</a></li>
+                <li role="none"><a href="#about" class="hover:text-yellow-custom transition-colors" role="menuitem">About</a></li>
+                <li role="none"><a href="#gallery" class="hover:text-yellow-custom transition-colors" role="menuitem">Gallery</a></li>
+                <li role="none"><a href="#achievements" class="hover:text-yellow-custom transition-colors" role="menuitem">Prestasi</a></li>
+                <li role="none"><a href="#news" class="hover:text-yellow-custom transition-colors" role="menuitem">News</a></li>
+                <li role="none"><a href="#team" class="hover:text-yellow-custom transition-colors" role="menuitem">Team</a></li>
+                <li role="none"><a href="#contact" class="hover:text-yellow-custom transition-colors" role="menuitem">Contact</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <button @click="darkMode = !darkMode; localStorage.setItem('darkMode', darkMode)" class="p-2 rounded-full text-navy dark:text-yellow-custom hover:bg-gray-200 dark:hover:bg-light-blue transition-colors" aria-label="Toggle dark mode" :aria-pressed="darkMode.toString()">
+                    <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                    <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                </button>
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 rounded-md text-navy dark:text-white" aria-label="Toggle mobile menu" :aria-expanded="mobileMenuOpen.toString()" aria-controls="mobile-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                </button>
+            </div>
         </div>
-        <div class="right">
-          <p>
-            Swarnakasa didirikan pada bulan Maret 2023 untuk mengikuti Kontes Robot Terbang Indonesia (KRTI) 2023.
-            Pada tahun 2024, Tim Swarnakasa telah berhasil menjadi komunitas mandiri yang berfokus pada pengembangan dan
-            Aeromodelling untuk perlombaan-perlombaan di masa depan, termasuk KRTI 2024.
-            Pada KRTI 2023, Tim Swarnakasa mengikuti 3 divisi: Racing Plane, Fixed Wing, dan Technology Development. Tim
-            Swarnakasa yang berhasil lolos ke tahap final yaitu Divisi Technology Development dan meraih penghargaan Tim
-            Favorit.
-          </p>
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden mt-4 bg-white dark:bg-light-blue rounded-lg shadow-lg p-4" id="mobile-menu">
+             <ul class="flex flex-col space-y-4 font-semibold text-navy dark:text-white" role="menu">
+                <li role="none"><a href="#home" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">Home</a></li>
+                <li role="none"><a href="#about" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">About</a></li>
+                <li role="none"><a href="#gallery" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">Gallery</a></li>
+                <li role="none"><a href="#achievements" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">Prestasi</a></li>
+                <li role="none"><a href="#news" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">News</a></li>
+                <li role="none"><a href="#team" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">Team</a></li>
+                <li><a href="#contact" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Contact</a></li>
+            </ul>
         </div>
-      </div>
+    </nav>    </header>
+
+    <main id="main-content">
+        <section id="home" class="relative h-screen flex items-center justify-center text-white">
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('./images/bg.jpg');"></div>
+            <div class="relative z-20 text-center px-6">
+                <h1 class="font-heading text-5xl md:text-7xl font-extrabold tracking-tight">SWARNAKASA ITERA</h1>
+                <p class="mt-4 text-xl md:text-2xl font-light">Lampaui Batas, Generasi Emas Mengudara</p>
+                <div class="mt-8 flex justify-center gap-4">
+                    <a href="#about" class="bg-yellow-custom text-navy font-bold py-3 px-8 rounded-lg hover:bg-opacity-80 transition-transform hover:scale-105">Kenali Kami</a>
+                    <a href="#gallery" class="border-2 border-yellow-custom text-yellow-custom font-bold py-3 px-8 rounded-lg hover:bg-yellow-custom hover:text-navy transition-all hover:scale-105">Lihat Galeri</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 bg-gray-50 dark:bg-light-blue">
+    <div class="container mx-auto px-6">
+        <div class="text-center">
+            <h2 class="about-section-title text-4xl font-bold font-heading text-navy dark:text-white mb-4">Tentang Swarnakasa</h2>
+            <p class="about-section-subtitle max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-100">
+                Swarnakasa ITERA adalah wadah bagi para inovator muda untuk bereksplorasi, berkolaborasi, dan berprestasi dalam dunia teknologi Unmanned Aerial Vehicle (UAV) dan kedirgantaraan. 
+            </p>
+            <p class="about-section-subtitle max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-100">
+                Nama Swarnakasa berasal dari kata "Swarna" dan "Akasa" yang berarti "Emas di Angkasa". Nama ini mencerminkan tujuan tim untuk membawa nama baik ITERA di kancah Perlombaan Robotika Penerbang dan UAV. 
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mt-16">
+            <div class="about-card text-center p-8 bg-white dark:bg-navy rounded-lg shadow-lg border border-gray-200 dark:border-gray-600">
+                <div class="about-icon bg-yellow-custom text-navy inline-block p-4 rounded-full mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>
+                </div>
+                <h3 class="about-title text-2xl font-bold font-heading mb-2">Inovasi Teknologi</h3>
+                <p class="about-description text-gray-600 dark:text-gray-300">Kami fokus pada riset dan pengembangan UAV terkini, dari desain rangka hingga sistem kontrol penerbangan yang canggih.</p>
+            </div>
+            <div class="about-card text-center p-8 bg-white dark:bg-navy rounded-lg shadow-lg border border-gray-200 dark:border-gray-600">
+                <div class="about-icon bg-yellow-custom text-navy inline-block p-4 rounded-full mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                </div>
+                <h3 class="about-title text-2xl font-bold font-heading mb-2">Kolaborasi Tim</h3>
+                <p class="about-description text-gray-600 dark:text-gray-300">Terbuka untuk semua prodi, kami percaya kolaborasi lintas disiplin ilmu adalah kunci untuk menciptakan solusi terbaik.</p>
+            </div>
+            <div class="about-card text-center p-8 bg-white dark:bg-navy rounded-lg shadow-lg border border-gray-200 dark:border-gray-600">
+                <div class="about-icon bg-yellow-custom text-navy inline-block p-4 rounded-full mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3-3m0 0l3 3m-3-3v8m0-13a9 9 0 110 18 9 9 0 010-18z" /></svg>
+                </div>
+                <h3 class="about-title text-2xl font-bold font-heading mb-2">Ajang Prestasi</h3>
+                <p class="about-description text-gray-600 dark:text-gray-300">Kami aktif mengikuti berbagai kompetisi nasional seperti KRTI untuk menguji kemampuan dan mengharumkan nama ITERA.</p>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
 
-
-  <!-- Division Section -->
-  <section class="division" id="division">
-    <div class="subheader"><span>DIVISION</span></div>
-    <div class="division-card">
-      <div class="yellow float-start" data-aos="fade-up" data-aos-duration="1500">
-        <div class="elemen">
-          <div class="icon">
-            <img src="./images/TD.png" class="img-fluid" style="width: 50em;">
-          </div>
-
-          <div class="desc">
-            <h1 class="title">Technical - Electrical</h1>
-            <p>Lorem Ipsum.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="blue float-end" data-aos="fade-up" data-aos-duration="1500">
-        <div class="elemen">
-          <div class="desc">
-            <h1 class="title">Technical - Airframe and Modelling</h1>
-            <p>DLorem Ipsum.
-            </p>
-          </div>
-
-          <div class="icon">
-            <img src="./images/RP.png" class="img-fluid" style="width: 50em;">
-          </div>
-        </div>
-      </div>
-
-      <div class="yellow float-start last" data-aos="fade-up" data-aos-duration="1500">
-        <div class="elemen">
-          <div class="icon">
-            <img src="./images/FW.png" class="img-fluid" style="width: 50em;">
-          </div>
-
-          <div class="desc">
-            <h1 class="title">Technical - Ground Control Station</h1>
-            <p>Lorem Ipsum.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="yellow float-start last" data-aos="fade-up" data-aos-duration="1500">
-        <div class="elemen">
-          <div class="icon">
-            <img src="./images/FW.png" class="img-fluid" style="width: 50em;">
-          </div>
-
-          <div class="desc">
-            <h1 class="title">Non Technical - Publication and Documentation</h1>
-            <p>Lorem Ipsum.
-            </p>
-          </div>
-        </div>
-      </div>      
-
-      <div class="yellow float-start last" data-aos="fade-up" data-aos-duration="1500">
-        <div class="elemen">
-          <div class="icon">
-            <img src="./images/FW.png" class="img-fluid" style="width: 50em;">
-          </div>
-
-          <div class="desc">
-            <h1 class="title">Non Technical - Administrator</h1>
-            <p>Lorem Ipsum.
-            </p>
-          </div>
-        </div>
-      </div>      
-    </div>
-  </section>
-  <!-- End Division Section -->
-
-  <!--   Start Progress Section   -->
-  <section class="progress" id="our-progress">
-    <div class="progress-title" data-aos="fade-up" data-aos-duration="1500">
-      <h1>DOCUMENTATION</h1>
-    </div>
-    <iframe data-aos="fade-up" data-aos-duration="2200" width="860" height="415"
-      src="" title="" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen></iframe>
-  </section>
-  <!--   End Progress Section   -->
-
-  <!-- Footer Section Start -->
-  <footer id="contact">
-    <div class="container footer-content">
-      <div class="row">
-        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <div class="footer-col progres-title" data-aos="fade-up" data-aos-duration="1500">
-
-            <h3>Contact Us</h3>
-
-            <div>
-              <div class="d-flex gap-4">
-                <div><i class="fa-brands fa-instagram p-2 bg-warning rounded" style="font-size: 18px;color:#333"></i>
+        <!-- Section Divisi Penelitian & Pengembangan Swarnakasa -->
+        <section id="divisi" class="py-20 bg-white dark:bg-navy">
+          <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+              <h2 class="section-title text-4xl font-bold font-heading text-navy">Divisi Penelitian & Pengembangan</h2>
+              <p class="section-subtitle max-w-2xl mx-auto text-lg text-navy">
+                Swarnakasa memiliki beberapa divisi utama yang berfokus pada riset dan pengembangan teknologi UAV.
+              </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+              <!-- Racing Plane -->
+              <div class="division-card bg-white dark:bg-light-blue rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-8 text-center flex flex-col items-center hover:shadow-xl transition-all duration-300">
+                <div class="division-icon bg-yellow-custom text-navy inline-block p-4 rounded-full mb-4">
+                  <!-- Icon: Racing Flag -->
+                  <i class="fas fa-flag-checkered text-4xl"></i>
                 </div>
-                <div>
-                  <h4 class="text-white">Instagram</h4>
-                  <h4 class="text-warning"><a
-                      href="https://www.instagram.com/swarnakasa.itera?igsh=MWsxbjh1YmlkbnlqdA==">@swarnakasa.itera</a>
-                  </h4>
-                </div>
-            <div>
-              <div class="d-flex gap-4">
-                <div><i class="fa-brands fa-instagram p-2 bg-warning rounded" style="font-size: 18px;color:#333"></i>
-                </div>
-              <div>
-                  <h4 class="text-white">LinkedIn</h4>
-                  <h4 class="text-warning"><a
-                      href="https://www.linkedin.com/company/swarnakasa-itera/">Swarnakasa ITERA</a>
-                  </h4>
-                </div>
-                <div>
-              <div class="d-flex gap-4">
-                <div><i class="fa-brands fa-instagram p-2 bg-warning rounded" style="font-size: 18px;color:#333"></i>
-                </div>
+                <h3 class="division-title text-xl font-bold font-heading mb-2 text-navy dark:text-white">Racing Plane</h3>
+                <p class="division-description text-gray-600 dark:text-gray-200">Divisi yang berfokus pada pengembangan pesawat balap (racing) untuk kompetisi kecepatan dan manuver.</p>
               </div>
-              <div class="d-flex gap-4">
-                <div><i class="fa-brands fa-youtube p-2 bg-danger rounded" style="font-size: 18px"></i></div>
-                <div>
-                  <h4 class="text-white">Youtube</h4>
-                  <h4 class="text-warning"><a href="https://www.youtube.com/@SwarnakasaITERA">Swarnakasa ITERA</a></h4>
+              <!-- Technical Development -->
+              <div class="division-card bg-white dark:bg-light-blue rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-8 text-center flex flex-col items-center hover:shadow-xl transition-all duration-300">
+                <div class="division-icon bg-yellow-custom text-navy inline-block p-4 rounded-full mb-4">
+                  <!-- Icon: Microchip/CPU -->
+                  <i class="fas fa-microchip text-4xl"></i>
                 </div>
+                <h3 class="division-title text-xl font-bold font-heading mb-2 text-navy dark:text-white">Technical Development</h3>
+                <p class="division-description text-gray-600 dark:text-gray-200">Divisi yang berfokus pada riset, pengembangan sistem elektronik, kontrol, dan inovasi teknologi UAV.</p>
+              </div>
+              <!-- Fixed Wing -->
+              <div class="division-card bg-white dark:bg-light-blue rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-8 text-center flex flex-col items-center hover:shadow-xl transition-all duration-300">
+                <div class="division-icon bg-yellow-custom text-navy inline-block p-4 rounded-full mb-4">
+                  <!-- Icon: Plane/Aircraft -->
+                  <i class="fas fa-plane text-4xl"></i>
+                </div>
+                <h3 class="division-title text-xl font-bold font-heading mb-2 text-navy dark:text-white">Fixed Wing</h3>
+                <p class="division-description text-gray-600 dark:text-gray-200">Divisi yang berfokus pada desain, konstruksi, dan pengembangan pesawat sayap tetap (fixed wing) untuk berbagai misi.</p>
               </div>
             </div>
-
           </div>
-        </div>
+        </section>
 
-        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-          <div class="mapouter" data-aos="fade-up" data-aos-duration="2200">
-            <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" frameborder="0" scrolling="no"
-                marginheight="0" marginwidth="0"
-                src="https://maps.google.com/maps?width=677&amp;height=400&amp;hl=en&amp;q=e building itera&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+        <section id="gallery" class="py-20 bg-gray-50 dark:bg-light-blue" tabindex="-1">
+    <div class="container mx-auto px-6">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold font-heading text-navy dark:text-white mb-4">Galeri Kegiatan</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-100">
+                Momen-momen berharga dari riset, kompetisi, dan kebersamaan tim kami.
+            </p>
+        </div>
+    </div>
+    
+    <!-- Container Galeri dengan Kontrol yang Fixed -->
+    <div class="relative mt-12 w-full">
+        <!-- Galeri Swiper -->
+        <div class="swiper-container gallery-swiper w-full">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide group gallery-item" data-img="./images/gallery/1.jpg">
+                    <img class="gallery-img" src="./images/gallery/2.jpg" alt="Galeri 1" />
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                </div>
+                <div class="swiper-slide group gallery-item" data-img="./images/gallery/2.jpg">
+                    <img class="gallery-img" src="./images/gallery/3.jpg" alt="Galeri 2" />
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                </div>
+                <div class="swiper-slide group gallery-item" data-img="./images/gallery/3.jpg">
+                    <img class="gallery-img" src="./images/gallery/4.jpg" alt="Galeri 3" />
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                </div>
+                <div class="swiper-slide group gallery-item" data-img="./images/gallery/4.jpg">
+                    <img class="gallery-img" src="./images/gallery/5.jpg" alt="Galeri 4" />
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                </div>
+                <div class="swiper-slide group gallery-item" data-img="./images/gallery/5.jpg">
+                    <img class="gallery-img" src="./images/gallery/6.jpg" alt="Galeri 5" />
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                </div>
+                 <div class="swiper-slide group gallery-item" data-img="./images/gallery/5.jpg">
+                    <img class="gallery-img" src="./images/gallery/7.jpg" alt="Galeri 6" />
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                </div>
+                 <div class="swiper-slide group gallery-item" data-img="./images/gallery/5.jpg">
+                    <img class="gallery-img" src="./images/gallery/8.jpg" alt="Galeri 7" />
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                </div>
+                 <div class="swiper-slide group gallery-item" data-img="./images/gallery/5.jpg">
+                    <img class="gallery-img" src="./images/gallery/9.jpg" alt="Galeri 8" />
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                </div>
+      
             </div>
-            <style>
-              .mapouter {
-                position: relative;
-                text-align: right;
-                width: 100%;
-                height: 400px;
-              }
-
-              .gmap_canvas {
-                overflow: hidden;
-                background: none !important;
-                width: 100%;
-                height: 400px;
-              }
-
-              .gmap_iframe {
-                height: 400px !important;
-              }
-            </style>
-          </div>
         </div>
-      </div>
+        
+        <!-- Navigation Arrows (fixed position) -->
+        <div class="swiper-button-prev gallery-nav-prev">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </div>
+        <div class="swiper-button-next gallery-nav-next">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </div>
+        
+        <!-- Pagination Dots (fixed di tengah bawah) -->
+        <div class="swiper-pagination gallery-pagination"></div>
+        
+        <!-- Progress Bar (inovasi tambahan) -->
+        <div class="gallery-progress-bar">
+            <div class="gallery-progress-fill"></div>
+        </div>
     </div>
-
-    <div class="footer-bottom text-left">
-      <p>&copy;Copyright Official <b>SWARNAKASA</b> 2023. All Rights Reserved.</p>
+    <!-- Modal Gallery dengan fitur zoom lengkap -->
+    <div id="gallery-modal" class="fixed inset-0 z-[99999] bg-black/90 items-center justify-center hidden transition-opacity duration-300" aria-hidden="true" role="dialog">
+        <!-- Tombol Close di pojok kanan atas -->
+        <button id="modal-close" 
+                class="absolute top-6 right-6 bg-yellow-custom text-navy w-12 h-12 flex items-center justify-center rounded-full text-2xl font-bold cursor-pointer shadow-lg z-[100001] transition-all duration-300 hover:scale-110 hover:bg-white focus:outline-none focus:ring-2 focus:ring-yellow-custom" 
+                aria-label="Tutup gambar">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        
+        <!-- Container gambar dengan loading state -->
+        <div class="relative max-w-[95vw] max-h-[90vh] flex items-center justify-center">
+            <!-- Loading spinner -->
+            <div id="modal-loading" class="absolute inset-0 flex items-center justify-center">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-custom"></div>
+            </div>
+            
+            <!-- Gambar utama -->
+            <img id="modal-img" 
+                 src="" 
+                 alt="Preview gambar galeri" 
+                 class="max-w-full max-h-full object-contain rounded-lg shadow-2xl opacity-0 transition-opacity duration-300"
+                 loading="lazy">
+        </div>
+        
+        <!-- Informasi gambar (opsional) -->
+        <div id="modal-caption" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-lg text-center max-w-md opacity-0 transition-opacity duration-300">
+            <p id="modal-caption-text" class="text-sm"></p>
+        </div>
     </div>
+</section>
+        
+        <section id="news" class="py-20">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-bold font-heading text-center mb-12">Berita & Informasi</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white dark:bg-light-blue rounded-lg shadow-lg overflow-hidden group border border-gray-200 dark:border-gray-600">
+                <img src="https://picsum.photos/seed/news1/600/400" alt="News 1" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                <div class="p-6">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">1 Juli 2025</p>
+                    <h3 class="font-heading text-xl font-bold mt-2 mb-2">Swarnakasa Raih Juara di KRTI 2025</h3>
+                    <p class="text-sm mb-4">Tim kami berhasil membawa pulang penghargaan untuk kategori Technology Development...</p>
+                    <a href="#" class="font-bold text-yellow-custom hover:underline">Baca Selengkapnya →</a>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-light-blue rounded-lg shadow-lg overflow-hidden group border border-gray-200 dark:border-gray-600">
+                <img src="https://picsum.photos/seed/news2/600/400" alt="News 2" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                <div class="p-6">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">20 Juni 2025</p>
+                    <h3 class="font-heading text-xl font-bold mt-2 mb-2">Open Recruitment Anggota Baru</h3>
+                    <p class="text-sm mb-4">Pendaftaran untuk anggota baru angkatan 2025 resmi dibuka. Segera daftarkan dirimu!</p>
+                    <a href="#" class="font-bold text-yellow-custom hover:underline">Baca Selengkapnya →</a>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-light-blue rounded-lg shadow-lg overflow-hidden group border border-gray-200 dark:border-gray-600">
+                <img src="https://picsum.photos/seed/news3/600/400" alt="News 3" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                <div class="p-6">
+                    <p class="text-sm text-gray-500 dark:text-gray-400">5 Juni 2025</p>
+                    <h3 class="font-heading text-xl font-bold mt-2 mb-2">Workshop Pembuatan Drone FPV</h3>
+                    <p class="text-sm mb-4">Bekerjasama dengan komunitas drone lokal, kami mengadakan workshop gratis untuk mahasiswa.</p>
+                    <a href="#" class="font-bold text-yellow-custom hover:underline">Baca Selengkapnya →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-  </footer>
+       <section id="team" class="py-32 bg-gray-50 dark:bg-light-blue" style="overflow: visible; padding-top: 8rem; padding-bottom: 8rem;">
+            <div class="container mx-auto px-6" style="overflow: visible;">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold font-heading text-navy dark:text-white mb-4" data-aos="fade-up">Pengurus Inti Swarnakasa</h2>
+                    <p class="max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-100 mb-12" data-aos="fade-up" data-aos-delay="100">
+                        Dipimpin oleh individu-individu berpengalaman dan berdedikasi untuk memajukan teknologi UAV di Indonesia.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center team-grid" style="overflow: visible; padding: 2rem 0;">
+                    <div class="team-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="200" style="overflow: visible;">
+                        <div class="team-image-container" style="overflow: visible; padding: 1rem;">
+                            <img src="/images/gallery/afiq.png" alt="Foto Ketua" class="w-32 h-32 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        </div>
+                        <h4 class="font-heading text-lg font-bold">Muhammad Afiq Ahnaf S</h4>
+                        <p class="text-sm text-yellow-custom">General Manager</p>
+                    </div>
+                    <div class="team-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="300" style="overflow: visible;">
+                        <div class="team-image-container" style="overflow: visible; padding: 1rem;">
+                            <img src="/images/gallery/Timo.jpg" alt="Foto Wakil" class="w-32 h-32 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        </div>
+                        <h4 class="font-heading text-lg font-bold">Timotius Prayoga</h4>
+                        <p class="text-sm text-yellow-custom">Kepala Technical</p>
+                    </div>
+                    <div class="team-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="400" style="overflow: visible;">
+                        <div class="team-image-container" style="overflow: visible; padding: 1rem;">
+                            <img src="/images/gallery/Nanda.jpg" alt="Foto Sekretaris" class="w-32 h-32 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        </div>
+                        <h4 class="font-heading text-lg font-bold">Ananda Oktaviana</h4>
+                        <p class="text-sm text-yellow-custom">Kepala Non-Technical</p>
+                    </div>
+                    <div class="team-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="500" style="overflow: visible;">
+                        <div class="team-image-container" style="overflow: visible; padding: 1rem;">
+                            <img src="https://i.pravatar.cc/150?u=benda" alt="Foto Bendahara" class="w-32 h-32 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        </div>
+                        <h4 class="font-heading text-lg font-bold">Nama Bendahara</h4>
+                        <p class="text-sm text-yellow-custom">Bendahara</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <script src="script.js"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-    integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-    integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-    crossorigin="anonymous"></script>
+        <section id="achievements" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center">
+            <h2 class="achievements-section-title text-4xl font-bold font-heading text-navy dark:text-white mb-4">Prestasi & Capaian</h2>
+            <p class="achievements-section-subtitle max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-100">
+                Dedikasi dan kerja keras tim telah membuahkan hasil dalam berbagai ajang kompetisi bergengsi.
+            </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+            <div class="achievement-card bg-white dark:bg-light-blue p-6 rounded-lg shadow-lg flex items-start gap-4 border border-gray-200 dark:border-gray-600">
+                <div class="achievement-icon text-yellow-custom pt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M11.293 2.293a1 1 0 011.414 0l2 2a1 1 0 01-1.414 1.414L12 4.414V17a1 1 0 11-2 0V4.414L8.707 5.707a1 1 0 01-1.414-1.414l2-2zM3 11a1 1 0 112 0v6H3v-6zM15 11a1 1 0 112 0v6h-2v-6z" clip-rule="evenodd" /></svg>
+                </div>
+                <div>
+                    <h3 class="achievement-title font-heading text-xl font-bold">Tim Favorit KRTI</h3>
+                    <p class="achievement-year font-semibold text-yellow-custom">2023</p>
+                    <p class="achievement-description mt-2 text-sm text-gray-600 dark:text-gray-300">Meraih penghargaan sebagai Tim Favorit pada Kontes Robot Terbang Indonesia di divisi Technology Development.</p>
+                </div>
+            </div>
+            <div class="achievement-card bg-white dark:bg-light-blue p-6 rounded-lg shadow-lg flex items-start gap-4 border border-gray-200 dark:border-gray-600">
+                <div class="achievement-icon text-yellow-custom pt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" /><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h.01a1 1 0 100-2H10zm3 0a1 1 0 000 2h.01a1 1 0 100-2H13zM7 12a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h.01a1 1 0 100-2H10zm3 0a1 1 0 000 2h.01a1 1 0 100-2H13z" clip-rule="evenodd" /></svg>
+                </div>
+                <div>
+                    <h3 class="achievement-title font-heading text-xl font-bold">Finalis Lomba Desain</h3>
+                    <p class="achievement-year font-semibold text-yellow-custom">2024</p>
+                    <p class="achievement-description mt-2 text-sm text-gray-600 dark:text-gray-300">Desain inovatif sayap efisiensi tinggi kami berhasil masuk sebagai finalis dalam ajang desain nasional.</p>
+                </div>
+            </div>
+            <div class="achievement-card bg-white dark:bg-light-blue p-6 rounded-lg shadow-lg flex items-start gap-4 border border-gray-200 dark:border-gray-600">
+                <div class="achievement-icon text-yellow-custom pt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.75A5.972 5.972 0 0012 12a5.972 5.972 0 00-3.25 1.25A5.972 5.972 0 008 15v3h8z" /></svg>
+                </div>
+                <div>
+                    <h3 class="achievement-title font-heading text-xl font-bold">Best Community Engagement</h3>
+                    <p class="achievement-year font-semibold text-yellow-custom">2024</p>
+                    <p class="achievement-description mt-2 text-sm text-gray-600 dark:text-gray-300">Diakui atas kontribusi aktif kami dalam mengadakan workshop dan pengabdian masyarakat terkait teknologi drone.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        <section id="faq" class="py-20">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-4xl font-bold font-heading mb-8">Frequently Asked Questions</h2>
+                    <div class="space-y-4">
+                        <div x-data="{ open: false }" class="border-b border-gray-300 dark:border-gray-600">
+                            <button @click="open = !open" class="w-full flex justify-between items-center py-4 text-left font-semibold">
+                                <span>Bagaimana cara bergabung dengan UKM Swarnakasa?</span>
+                                <svg :class="{'rotate-180': open}" class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </button>
+                            <div x-show="open" x-collapse class="pt-2 pb-4 text-gray-600 dark:text-gray-300">
+                                Pendaftaran biasanya kami buka setiap awal semester ganjil. Pantau terus media sosial kami untuk informasi pendaftaran terbaru!
+                            </div>
+                        </div>
+                        <div x-data="{ open: false }" class="border-b border-gray-300 dark:border-gray-600">
+                            <button @click="open = !open" class="w-full flex justify-between items-center py-4 text-left font-semibold">
+                                <span>Apakah harus dari prodi tertentu untuk bergabung?</span>
+                                <svg :class="{'rotate-180': open}" class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </button>
+                             <div x-show="open" x-collapse class="pt-2 pb-4 text-gray-600 dark:text-gray-300">
+                                Tidak! Swarnakasa terbuka untuk semua mahasiswa ITERA dari program studi manapun yang memiliki minat dan semangat di bidang dirgantara dan UAV.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold font-heading mb-8">Pusat Unduhan</h2>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-light-blue rounded-lg hover:bg-yellow-custom hover:text-navy dark:hover:bg-yellow-custom group">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-custom group-hover:text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                            <span class="font-semibold">Brosur Pendaftaran 2025.pdf</span>
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-4 p-4 bg-gray-100 dark:bg-light-blue rounded-lg hover:bg-yellow-custom hover:text-navy dark:hover:bg-yellow-custom group">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-custom group-hover:text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                            <span class="font-semibold">Proposal Sponsorship KRTI 2026.pdf</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact" class="bg-light-blue text-white pt-20">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold font-heading mb-4">Hubungi Kami</h2>
+                <p class="mb-6">Ada pertanyaan atau tawaran kerjasama? Jangan ragu untuk mengirim pesan.</p>
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="mb-4">
+                        <label for="name" class="block mb-2 text-sm font-bold">Nama</label>
+                        <input type="text" id="name" name="name" class="w-full p-3 rounded bg-navy/50 border border-navy focus:outline-none focus:ring-2 focus:ring-yellow-custom transition" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block mb-2 text-sm font-bold">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-3 rounded bg-navy/50 border border-navy focus:outline-none focus:ring-2 focus:ring-yellow-custom transition" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block mb-2 text-sm font-bold">Pesan</label>
+                        <textarea id="message" name="message" rows="4" class="w-full p-3 rounded bg-navy/50 border border-navy focus:outline-none focus:ring-2 focus:ring-yellow-custom transition" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-yellow-custom text-navy font-bold py-3 px-8 rounded-lg hover:bg-opacity-80 transition-transform hover:scale-105">Kirim Pesan</button>
+                </form>
+            </div>
+            <div>
+                <h2 class="text-3xl font-bold font-heading mb-4">Temukan Kami</h2>
+                <div class="space-y-4 mb-8">
+                    <a href="mailto:contact@swarnakasa-itera.com" class="flex items-center gap-4 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-custom" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 012 2z" /></svg>
+                        <span class="group-hover:underline">swarnakasa@gmail.com</span>
+                    </a>
+                    <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-custom" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                        </svg>
+                        <span class="group-hover:underline">+62 812-3456-7890</span>
+                    </a>
+                    <a href="https://instagram.com/swarnakasa.itera" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-custom" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z"/></svg>
+                        <span class="group-hover:underline">@swarnakasa.itera</span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/swarnakasa-itera/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-custom" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
+                        <span class="group-hover:underline">Swarnakasa ITERA</span>
+                    </a>
+                </div>
+                <div class="rounded-lg overflow-hidden h-64 mt-8">
+                    <iframe class="gmap-iframe" width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Institut Teknologi Sumatera&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                            </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-20 py-6 bg-navy text-center text-gray-400">
+        <p>© <span x-text="new Date().getFullYear()"></span> SWARNAKASA ITERA. All Rights Reserved.</p>
+    </div>
+</footer>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" 
+            class="fixed bottom-6 right-6 z-50 bg-yellow-custom hover:bg-yellow-400 text-navy p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 opacity-0 translate-y-4 pointer-events-none"
+            aria-label="Kembali ke atas"
+            title="Kembali ke atas">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script> -->
+<!-- <script src="script.js"></script> --> <!-- Dikomentar karena sudah ada implementasi langsung di HTML -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        AOS.init({ duration: 800, once: true });
+
+        // --- KONFIGURASI SWIPER DENGAN KONTROL YANG ENHANCED ---
+        const swiper = new Swiper('.gallery-swiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            coverflowEffect: {
+                rotate: 40,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.gallery-pagination',
+                clickable: true,
+                dynamicBullets: false,
+            },
+            navigation: {
+                nextEl: '.gallery-nav-next',
+                prevEl: '.gallery-nav-prev',
+            },
+            // Auto update progress bar
+            on: {
+                slideChange: function() {
+                    updateProgressBar(this);
+                },
+                init: function() {
+                    updateProgressBar(this);
+                }
+            }
+        });
+
+        // Function untuk update progress bar
+        function updateProgressBar(swiperInstance) {
+            const progressFill = document.querySelector('.gallery-progress-fill');
+            if (progressFill && swiperInstance.slides) {
+                // Hitung persentase progress berdasarkan slide aktif
+                const progress = ((swiperInstance.realIndex + 1) / swiperInstance.slides.length) * 100;
+                progressFill.style.width = progress + '%';
+            }
+        }
+
+        // --- IMPLEMENTASI GALLERY MODAL LANGSUNG DI HTML ---
+        const modal = document.getElementById('gallery-modal');
+        const modalImage = document.getElementById('modal-img');
+        const modalLoading = document.getElementById('modal-loading');
+        const modalCaption = document.getElementById('modal-caption');
+        const modalCaptionText = document.getElementById('modal-caption-text');
+        const closeModalBtn = document.getElementById('modal-close');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        console.log('Modal elements found:', {
+            modal: !!modal,
+            modalImage: !!modalImage,
+            closeModalBtn: !!closeModalBtn,
+            galleryItems: galleryItems.length
+        });
+
+        if (modal && modalImage && closeModalBtn && galleryItems.length > 0) {
+            // Fungsi untuk membuka modal
+            const openModal = function(imageSrc, imageAlt = '') {
+                console.log('Opening modal with:', imageSrc);
+                
+                // Reset state modal
+                modalImage.style.opacity = '0';
+                modalLoading.style.display = 'flex';
+                modalCaption.style.opacity = '0';
+                
+                // Tampilkan modal
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('modal-open');
+                
+                // Preload gambar
+                const img = new Image();
+                img.onload = function() {
+                    modalImage.src = imageSrc;
+                    modalImage.alt = imageAlt;
+                    
+                    // Hide loading, show image
+                    modalLoading.style.display = 'none';
+                    modalImage.style.opacity = '1';
+                    
+                    // Show caption if available
+                    if (imageAlt) {
+                        modalCaptionText.textContent = imageAlt;
+                        modalCaption.style.opacity = '1';
+                    }
+                    
+                    closeModalBtn.focus();
+                };
+                
+                img.onerror = function() {
+                    console.error('Failed to load image:', imageSrc);
+                    closeModal();
+                };
+                
+                img.src = imageSrc;
+            };
+
+            // Fungsi untuk menutup modal
+            const closeModal = function(event) {
+                // Prevent default behavior if event exists
+                if (event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                modalImage.src = '';
+                modalImage.style.opacity = '0';
+                modalCaption.style.opacity = '0';
+                modal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('modal-open');
+                
+                // Return focus to gallery section instead of top
+                const gallerySection = document.getElementById('gallery');
+                if (gallerySection) {
+                    // Scroll to gallery section smoothly with a slight delay to ensure modal is hidden
+                    setTimeout(() => {
+                        // Calculate the position to center the gallery section nicely
+                        const yOffset = -80; // Account for fixed navbar
+                        const element = gallerySection;
+                        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                        
+                        window.scrollTo({
+                            top: y,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Set focus to gallery section for accessibility after scroll completes
+                        setTimeout(() => {
+                            gallerySection.focus({ preventScroll: true });
+                        }, 800);
+                    }, 150);
+                } else {
+                    // Fallback: stay at current scroll position
+                    console.warn('Gallery section not found, staying at current position');
+                }
+            };
+
+            // Event listener untuk setiap item galeri
+            galleryItems.forEach((item, index) => {
+                item.style.cursor = 'pointer';
+                item.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    
+                    console.log('Gallery item clicked:', index);
+                    
+                    const imgElement = item.querySelector('.gallery-img');
+                    if (imgElement) {
+                        const imageSrc = item.getAttribute('data-img') || imgElement.src;
+                        const imageAlt = imgElement.alt || `Galeri ${index + 1}`;
+                        
+                        openModal(imageSrc, imageAlt);
+                    }
+                });
+            });
+
+            // Event listener untuk tombol close
+            closeModalBtn.addEventListener('click', function(event) {
+                closeModal(event);
+            });
+
+            // Event listener untuk menutup modal saat mengklik area latar belakang
+            modal.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    closeModal(event);
+                }
+            });
+
+            // Event listener untuk keyboard navigation
+            document.addEventListener('keydown', function(event) {
+                if (!modal.classList.contains('hidden')) {
+                    if (event.key === 'Escape') {
+                        closeModal(event);
+                    }
+                }
+            });
+        } else {
+            console.error('Gallery modal elements not found!');
+        }
+
+        // --- SCRIPT NAVBAR (TIDAK BERUBAH) ---
+        let nav = document.querySelector("nav");
+        
+        // --- SCRIPT BACK TO TOP BUTTON ---
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.onscroll = function () {
+            // Navbar sticky logic
+            if (document.documentElement.scrollTop > 20) {
+                nav.classList.add("sticky");
+            } else {
+                nav.classList.remove("sticky");
+            }
+            
+            // Back to top button visibility logic
+            if (document.documentElement.scrollTop > 300) {
+                // Show button
+                backToTopButton.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                backToTopButton.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            } else {
+                // Hide button
+                backToTopButton.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                backToTopButton.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+            }
+        };
+        
+        // Back to top button click handler
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Keyboard accessibility for back to top button
+        backToTopButton.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // --- SEO & PERFORMANCE OPTIMIZATIONS ---
+        
+        // Lazy load images for better performance
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img);
+                        }
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+        
+        // Update page title based on active section for better SEO
+        const sections = document.querySelectorAll('section[id]');
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    let title = 'Swarnakasa ITERA - Unit Kegiatan Mahasiswa UAV';
+                    
+                    switch(sectionId) {
+                        case 'about':
+                            title = 'Tentang Swarnakasa ITERA - UKM Teknologi UAV';
+                            break;
+                        case 'divisi':
+                            title = 'Divisi Penelitian - Swarnakasa ITERA';
+                            break;
+                        case 'gallery':
+                            title = 'Galeri Kegiatan - Swarnakasa ITERA';
+                            break;
+                        case 'news':
+                            title = 'Berita & Informasi - Swarnakasa ITERA';
+                            break;
+                        case 'team':
+                            title = 'Tim Inti - Swarnakasa ITERA';
+                            break;
+                        case 'achievements':
+                            title = 'Prestasi & Capaian - Swarnakasa ITERA';
+                            break;
+                        case 'contact':
+                            title = 'Kontak - Swarnakasa ITERA';
+                            break;
+                    }
+                    
+                    document.title = title;
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+        
+        // Prefetch important resources on hover
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    // Prefetch images in target section
+                    const images = targetSection.querySelectorAll('img[data-src]');
+                    images.forEach(img => {
+                        if (img.dataset.src) {
+                            const prefetchLink = document.createElement('link');
+                            prefetchLink.rel = 'prefetch';
+                            prefetchLink.href = img.dataset.src;
+                            document.head.appendChild(prefetchLink);
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
 </body>
-
 </html>
