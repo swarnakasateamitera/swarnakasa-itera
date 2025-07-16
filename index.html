@@ -1834,38 +1834,43 @@
         <section id="divisi" class="py-20 bg-white dark:bg-navy">
           <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-              <h2 class="section-title text-4xl font-bold font-heading text-navy">Divisi Penelitian & Pengembangan</h2>
-              <p class="section-subtitle max-w-2xl mx-auto text-lg text-navy">
+              <h2 class="section-title text-4xl font-bold font-heading text-navy dark:text-white">Divisi Penelitian & Pengembangan</h2>
+              <p class="section-subtitle max-w-2xl mx-auto text-lg text-navy text-navy">
                 Swarnakasa memiliki beberapa divisi utama yang berfokus pada riset dan pengembangan teknologi UAV.
               </p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-              <!-- Racing Plane -->
-              <div class="division-card bg-white dark:bg-light-blue rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-8 text-center flex flex-col items-center hover:shadow-xl transition-all duration-300">
-                <div class="division-icon bg-yellow-custom text-navy inline-block p-4 rounded-full mb-4">
-                  <!-- Icon: Racing Flag -->
-                  <i class="fas fa-flag-checkered text-4xl"></i>
+            <!-- Grid container untuk 2 card yang simetris -->
+            <div class="flex flex-wrap justify-center gap-8 md:gap-12 max-w-4xl mx-auto">
+              <!-- Technical Division -->
+              <div class="division-card bg-white dark:bg-light-blue rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-8 text-center flex flex-col items-center hover:shadow-xl hover:scale-105 transition-all duration-300 w-full md:w-80 lg:w-96" data-aos="fade-up" data-aos-delay="100">
+                <div class="division-icon bg-yellow-custom inline-flex items-center justify-center p-6 rounded-full mb-6 shadow-lg">
+                  <!-- Custom PNG Icon: Racing Plane -->
+                  <img src="/images/RP.png" alt="Technical Division Icon" class="w-16 h-16 object-contain filter drop-shadow-md">
                 </div>
-                <h3 class="division-title text-xl font-bold font-heading mb-2 text-navy dark:text-white">Racing Plane</h3>
-                <p class="division-description text-gray-600 dark:text-gray-200">Divisi yang berfokus pada pengembangan pesawat balap (racing) untuk kompetisi kecepatan dan manuver.</p>
+                <h3 class="division-title text-2xl font-bold font-heading mb-4 text-navy dark:text-white">Teknikal</h3>
+                <div class="division-description text-gray-600 dark:text-gray-200 leading-relaxed text-left">
+                  <ol class="list-decimal list-inside space-y-2">
+                    <li>Electrical</li>
+                    <li>Propulsion</li>
+                    <li>Ground Station</li>
+                  </ol>
+                </div>
               </div>
-              <!-- Technology Development -->
-              <div class="division-card bg-white dark:bg-light-blue rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-8 text-center flex flex-col items-center hover:shadow-xl transition-all duration-300">
-                <div class="division-icon bg-yellow-custom text-navy inline-block p-4 rounded-full mb-4">
-                  <!-- Icon: Microchip/CPU -->
-                  <i class="fas fa-microchip text-4xl"></i>
+              
+              <!-- Non-Technical Division -->
+              <div class="division-card bg-white dark:bg-light-blue rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-8 text-center flex flex-col items-center hover:shadow-xl hover:scale-105 transition-all duration-300 w-full md:w-80 lg:w-96" data-aos="fade-up" data-aos-delay="200">
+                <div class="division-icon bg-yellow-custom inline-flex items-center justify-center p-6 rounded-full mb-6 shadow-lg">
+                  <!-- Custom PNG Icon: Fixed Wing -->
+                  <img src="/images/FW.png" alt="Non-Technical Division Icon" class="w-16 h-16 object-contain filter drop-shadow-md">
                 </div>
-                <h3 class="division-title text-xl font-bold font-heading mb-2 text-navy dark:text-white">Technology Development</h3>
-                <p class="division-description text-gray-600 dark:text-gray-200">Divisi yang berfokus pada riset, pengembangan sistem elektronik, kontrol, dan inovasi teknologi UAV.</p>
-              </div>
-              <!-- Fixed Wing -->
-              <div class="division-card bg-white dark:bg-light-blue rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-8 text-center flex flex-col items-center hover:shadow-xl transition-all duration-300">
-                <div class="division-icon bg-yellow-custom text-navy inline-block p-4 rounded-full mb-4">
-                  <!-- Icon: Plane/Aircraft -->
-                  <i class="fas fa-plane text-4xl"></i>
+                <h3 class="division-title text-2xl font-bold font-heading mb-4 text-navy dark:text-white">Non Teknikal</h3>
+                <div class="division-description text-gray-600 dark:text-gray-200 leading-relaxed text-left">
+                  <ol class="list-decimal list-inside space-y-2">
+                    <li>Administration</li>
+                    <li>PDD</li>
+                    <li>Eksternal</li>
+                  </ol>
                 </div>
-                <h3 class="division-title text-xl font-bold font-heading mb-2 text-navy dark:text-white">Fixed Wing</h3>
-                <p class="division-description text-gray-600 dark:text-gray-200">Divisi yang berfokus pada desain, konstruksi, dan pengembangan pesawat sayap tetap (fixed wing) untuk berbagai misi.</p>
               </div>
             </div>
           </div>
@@ -2034,7 +2039,7 @@
                         Dipimpin oleh individu-individu berpengalaman dan berdedikasi untuk memajukan teknologi UAV dan Aeromodelling di ITERA.
                     </p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 text-center team-grid max-w-4xl mx-auto px-4" style="padding: 3rem 1rem;">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 text-center team-grid max-w-7xl mx-auto px-4" style="padding: 3rem 1rem;">
                     <div class="team-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="team-image-container p-6">
                             <img src="/images/gallery/afiq.jpeg" alt="Foto Ketua" class="w-36 h-36 lg:w-40 lg:h-40 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
@@ -2056,6 +2061,16 @@
                         <h4 class="font-heading text-xl font-bold text-navy dark:text-white">Ananda Oktaviana</h4>
                         <p class="text-base text-yellow-custom font-semibold">Kepala Divisi Non-Technical</p>
                     </div>
+                    <div class="team-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="team-image-container p-6">
+                            <img src="/images/gallery/Zahra.jpeg" alt="Foto Humas" class="w-36 h-36 lg:w-40 lg:h-40 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        </div>
+                        <h4 class="font-heading text-xl font-bold text-navy dark:text-white"> Zahra </h4>
+                        <p class="text-base text-yellow-custom font-semibold">Divisi Humas</p>
+                    </div>
+
+
+
                 </div>
             </div>
         </section>
