@@ -843,6 +843,16 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        z-index: 100002;
+      }
+      
+      #modal-loading .animate-spin {
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
       }
       
       /* Close Button Hover Effects */
@@ -1831,11 +1841,11 @@
 </section>
 
         <!-- Section Divisi Penelitian & Pengembangan Swarnakasa -->
-        <section id="divisi" class="py-20 bg-white dark:bg-navy">
+        <section id="divisi" class="py-20" :style="darkMode ? 'background-color: #21325e;' : 'background-color: #f9fafb;'">
           <div class="container mx-auto px-6">
             <div class="text-center mb-12">
               <h2 class="section-title text-4xl font-bold font-heading text-navy dark:text-white">Divisi Penelitian & Pengembangan</h2>
-              <p class="section-subtitle max-w-2xl mx-auto text-lg text-navy text-navy">
+              <p class="section-subtitle max-w-2xl mx-auto text-lg text-navy dark:text-gray-100">
                 Swarnakasa memiliki beberapa divisi utama yang berfokus pada riset dan pengembangan teknologi UAV.
               </p>
             </div>
@@ -1891,50 +1901,50 @@
         <!-- Galeri Swiper -->
         <div class="swiper-container gallery-swiper w-full">
             <div class="swiper-wrapper">
-                <div class="swiper-slide group gallery-item" data-img="./images/gallery/1.jpg">
-                    <img class="gallery-img" src="./images/gallery/2.jpg" alt="Galeri 1" />
-                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                    </div>
-                </div>
                 <div class="swiper-slide group gallery-item" data-img="./images/gallery/2.jpg">
-                    <img class="gallery-img" src="./images/gallery/3.jpg" alt="Galeri 2" />
+                    <img class="gallery-img" src="./images/gallery/2.jpg" alt="Galeri 1 - Kegiatan Riset dan Pengembangan" />
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </div>
                 </div>
                 <div class="swiper-slide group gallery-item" data-img="./images/gallery/3.jpg">
-                    <img class="gallery-img" src="./images/gallery/4.jpg" alt="Galeri 3" />
+                    <img class="gallery-img" src="./images/gallery/3.jpg" alt="Galeri 2 - Workshop dan Pelatihan" />
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </div>
                 </div>
                 <div class="swiper-slide group gallery-item" data-img="./images/gallery/4.jpg">
-                    <img class="gallery-img" src="./images/gallery/5.jpg" alt="Galeri 4" />
+                    <img class="gallery-img" src="./images/gallery/4.jpg" alt="Galeri 3 - Kompetisi dan Prestasi" />
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </div>
                 </div>
                 <div class="swiper-slide group gallery-item" data-img="./images/gallery/5.jpg">
-                    <img class="gallery-img" src="./images/gallery/6.jpg" alt="Galeri 5" />
+                    <img class="gallery-img" src="./images/gallery/5.jpg" alt="Galeri 4 - Proyek UAV dan Drone" />
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </div>
                 </div>
-                 <div class="swiper-slide group gallery-item" data-img="./images/gallery/5.jpg">
-                    <img class="gallery-img" src="./images/gallery/7.jpg" alt="Galeri 6" />
+                <div class="swiper-slide group gallery-item" data-img="./images/gallery/6.jpg">
+                    <img class="gallery-img" src="./images/gallery/6.jpg" alt="Galeri 5 - Kebersamaan Tim" />
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </div>
                 </div>
-                 <div class="swiper-slide group gallery-item" data-img="./images/gallery/5.jpg">
-                    <img class="gallery-img" src="./images/gallery/8.jpg" alt="Galeri 7" />
+                <div class="swiper-slide group gallery-item" data-img="./images/gallery/7.jpg">
+                    <img class="gallery-img" src="./images/gallery/7.jpg" alt="Galeri 6 - Eksperimen Teknologi" />
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </div>
                 </div>
-                 <div class="swiper-slide group gallery-item" data-img="./images/gallery/5.jpg">
-                    <img class="gallery-img" src="./images/gallery/9.jpg" alt="Galeri 8" />
+                <div class="swiper-slide group gallery-item" data-img="./images/gallery/8.jpg">
+                    <img class="gallery-img" src="./images/gallery/8.jpg" alt="Galeri 7 - Event dan Pameran" />
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </div>
+                </div>
+                <div class="swiper-slide group gallery-item" data-img="./images/gallery/9.jpg">
+                    <img class="gallery-img" src="./images/gallery/9.jpg" alt="Galeri 8 - Dokumentasi Aktivitas" />
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                     </div>
@@ -2272,10 +2282,13 @@
         // Function untuk update progress bar
         function updateProgressBar(swiperInstance) {
             const progressFill = document.querySelector('.gallery-progress-fill');
-            if (progressFill && swiperInstance.slides) {
+            if (progressFill && swiperInstance.slides && swiperInstance.slides.length > 0) {
                 // Hitung persentase progress berdasarkan slide aktif
-                const progress = ((swiperInstance.realIndex + 1) / swiperInstance.slides.length) * 100;
-                progressFill.style.width = progress + '%';
+                // Filter out duplicate slides for loop mode
+                const totalSlides = swiperInstance.slides.length;
+                const currentIndex = swiperInstance.realIndex;
+                const progress = ((currentIndex + 1) / totalSlides) * 100;
+                progressFill.style.width = Math.min(100, Math.max(0, progress)) + '%';
             }
         }
 
@@ -2300,6 +2313,12 @@
             const openModal = function(imageSrc, imageAlt = '') {
                 console.log('Opening modal with:', imageSrc);
                 
+                // Validasi input
+                if (!imageSrc || imageSrc.trim() === '') {
+                    console.error('Invalid image source provided:', imageSrc);
+                    return;
+                }
+                
                 // Reset state modal
                 modalImage.style.opacity = '0';
                 modalLoading.style.display = 'flex';
@@ -2311,9 +2330,12 @@
                 modal.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('modal-open');
                 
-                // Preload gambar
+                // Preload gambar dengan timeout
                 const img = new Image();
+                let loadTimeout;
+                
                 img.onload = function() {
+                    clearTimeout(loadTimeout);
                     modalImage.src = imageSrc;
                     modalImage.alt = imageAlt;
                     
@@ -2331,9 +2353,23 @@
                 };
                 
                 img.onerror = function() {
+                    clearTimeout(loadTimeout);
                     console.error('Failed to load image:', imageSrc);
-                    closeModal();
+                    modalLoading.style.display = 'none';
+                    modalCaptionText.textContent = 'Gambar tidak dapat dimuat';
+                    modalCaption.style.opacity = '1';
+                    
+                    // Auto close modal after showing error message
+                    setTimeout(() => {
+                        closeModal();
+                    }, 2000);
                 };
+                
+                // Set timeout untuk loading (15 detik)
+                loadTimeout = setTimeout(() => {
+                    console.error('Image loading timeout:', imageSrc);
+                    img.onerror();
+                }, 15000);
                 
                 img.src = imageSrc;
             };
@@ -2383,7 +2419,11 @@
             // Event listener untuk setiap item galeri
             galleryItems.forEach((item, index) => {
                 item.style.cursor = 'pointer';
-                item.addEventListener('click', function(event) {
+                item.setAttribute('role', 'button');
+                item.setAttribute('tabindex', '0');
+                item.setAttribute('aria-label', `Buka gambar galeri ${index + 1}`);
+                
+                const clickHandler = function(event) {
                     event.preventDefault();
                     event.stopPropagation();
                     
@@ -2394,7 +2434,25 @@
                         const imageSrc = item.getAttribute('data-img') || imgElement.src;
                         const imageAlt = imgElement.alt || `Galeri ${index + 1}`;
                         
-                        openModal(imageSrc, imageAlt);
+                        // Validasi bahwa src tidak kosong
+                        if (imageSrc && imageSrc.trim() !== '') {
+                            openModal(imageSrc, imageAlt);
+                        } else {
+                            console.error('Image source is empty for gallery item:', index);
+                        }
+                    } else {
+                        console.error('Image element not found in gallery item:', index);
+                    }
+                };
+                
+                // Event listener untuk click
+                item.addEventListener('click', clickHandler);
+                
+                // Event listener untuk keyboard accessibility
+                item.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        clickHandler(event);
                     }
                 });
             });
