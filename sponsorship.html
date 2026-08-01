@@ -56,20 +56,21 @@
 </head>
 <body class="bg-gray-50 dark:bg-dark-slate text-gray-800 dark:text-gray-100 font-sans transition-colors duration-300 antialiased selection:bg-yellow-custom selection:text-navy">
 
-    <!-- ===== HEADER & NAVBAR ===== -->
+    <!-- ===== HEADER & NAVBAR DENGAN PENYESUAIAN WARNA DINAMIS ===== -->
     <header x-data="{ mobileMenuOpen: false, isSticky: false }" 
             @scroll.window="isSticky = window.scrollY > 20" 
             class="fixed top-0 left-0 w-full z-50 transition-all duration-300" 
-            :class="{ 'bg-white/90 dark:bg-navy/90 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-800': isSticky, 'bg-navy/80 backdrop-blur-sm': !isSticky }">
+            :class="{ 'bg-white/95 dark:bg-navy/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-800': isSticky, 'bg-navy/85 backdrop-blur-sm': !isSticky }">
         <nav class="container mx-auto px-6 py-3" role="navigation" aria-label="Navigasi Utama">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center gap-3 group" aria-label="Swarnakasa ITERA - Beranda">
                     <img src="./images/Logo_swarna.png" alt="Logo Swarnakasa ITERA" class="h-10 w-auto transition-transform group-hover:scale-105">
-                    <span class="text-xl font-bold font-heading text-white">SWARNAKASA</span>
+                    <span class="text-xl font-bold font-heading transition-colors" :class="{ 'text-navy dark:text-white': isSticky, 'text-white': !isSticky }">SWARNAKASA</span>
                 </a>
                 
-                <!-- Desktop Menu -->
-                <ul class="hidden md:flex items-center space-x-8 font-semibold text-white text-sm" role="menubar">
+                <!-- Desktop Menu dengan kontras dinamis -->
+                <ul class="hidden md:flex items-center space-x-8 font-semibold text-sm transition-colors" 
+                    :class="{ 'text-navy dark:text-gray-100': isSticky, 'text-white': !isSticky }" role="menubar">
                     <li role="none"><a href="index.html#home" class="hover:text-yellow-custom transition-colors" role="menuitem">Home</a></li>
                     <li role="none"><a href="index.html#about" class="hover:text-yellow-custom transition-colors" role="menuitem">About</a></li>
                     <li role="none"><a href="gallery.html" class="hover:text-yellow-custom transition-colors" role="menuitem">Gallery</a></li>
@@ -81,16 +82,17 @@
                 </ul>
 
                 <div class="flex items-center space-x-4">
-                    <!-- Dark Mode Toggle -->
+                    <!-- Dark Mode Toggle Button -->
                     <button @click="darkMode = !darkMode; localStorage.setItem('darkMode', darkMode)" 
-                            class="p-2.5 rounded-full text-yellow-custom hover:bg-white/10 transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-custom" 
+                            class="p-2.5 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-custom" 
+                            :class="{ 'text-navy dark:text-yellow-custom hover:bg-gray-100 dark:hover:bg-white/10': isSticky, 'text-yellow-custom hover:bg-white/10': !isSticky }"
                             aria-label="Ubah Mode Tampilan">
                         <i x-show="!darkMode" class="fa-solid fa-moon text-lg"></i>
                         <i x-show="darkMode" class="fa-solid fa-sun text-lg"></i>
                     </button>
 
-                    <!-- CTA Direct WhatsApp Button Navbar -->
-                    <a href="https://wa.me/6281234567890?text=Halo%20Tim%20Swarnakasa%20ITERA,%20kami%20tertarik%20untuk%20berdiskusi%20mengenai%20peluang%20sponsorship." 
+                    <!-- CTA Direct WhatsApp Button Navbar (Nomor Ter-update 083173902295) -->
+                    <a href="https://wa.me/6283173902295?text=Halo%20Tim%20Swarnakasa%20ITERA,%20kami%20tertarik%20untuk%20berdiskusi%20mengenai%20peluang%20sponsorship." 
                        target="_blank" 
                        class="hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-yellow-custom hover:bg-yellow-400 text-navy font-bold text-xs rounded-xl shadow-md transition-all hover:scale-105">
                         <i class="fa-brands fa-whatsapp text-sm"></i> Diskusi Mitra
@@ -98,7 +100,8 @@
 
                     <!-- Mobile Menu Button -->
                     <button @click="mobileMenuOpen = !mobileMenuOpen" 
-                            class="md:hidden p-2 rounded-md text-white hover:text-yellow-custom" 
+                            class="md:hidden p-2 rounded-md transition-colors"
+                            :class="{ 'text-navy dark:text-white': isSticky, 'text-white': !isSticky }" 
                             aria-label="Buka Menu Navigasi">
                         <i x-show="!mobileMenuOpen" class="fa-solid fa-bars text-xl"></i>
                         <i x-show="mobileMenuOpen" class="fa-solid fa-xmark text-xl"></i>
@@ -150,22 +153,22 @@
                     Bergabunglah sebagai mitra strategis dalam pengembangan armada UAV dan riset kecerdasan buatan. Tingkatkan exposure brand Anda di kancah nasional Kontes Robot Terbang Indonesia (KRTI) dan berinvestasi pada talenta riset terbaik.
                 </p>
 
-                <!-- CTA Action Buttons -->
+                <!-- CTA Action Buttons (Update Phone Number WA: 083173902295) -->
                 <div class="flex flex-wrap justify-center gap-4 md:gap-6" data-aos="fade-up" data-aos-delay="300">
                     <a href="#download-proposal" 
                        class="px-8 py-4 bg-yellow-custom hover:bg-yellow-400 text-navy font-extrabold rounded-2xl shadow-xl transition-all duration-300 hover:scale-105 flex items-center gap-3 text-sm md:text-base">
                         <i class="fa-solid fa-file-arrow-down text-lg"></i> Unduh Proposal Sponsorship (PDF)
                     </a>
                     
-                    <a href="#paket-sponsorship" 
+                    <a href="#skema-kolaborasi" 
                        class="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold rounded-2xl backdrop-blur-md transition-all duration-300 hover:scale-105 flex items-center gap-3 text-sm md:text-base">
-                        <i class="fa-solid fa-layer-group text-lg"></i> Pelajari Paket Kemitraan
+                        <i class="fa-solid fa-handshake-simple text-lg"></i> Bentuk Kolaborasi
                     </a>
 
-                    <a href="https://wa.me/6281234567890?text=Halo%20Tim%20Swarnakasa%20ITERA,%20kami%20tertarik%20untuk%20berdiskusi%20mengenai%20peluang%20sponsorship." 
+                    <a href="https://wa.me/6283173902295?text=Halo%20Tim%20Swarnakasa%20ITERA,%20kami%20tertarik%20untuk%20berdiskusi%20mengenai%20peluang%20sponsorship." 
                        target="_blank"
                        class="px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 flex items-center gap-3 text-sm md:text-base">
-                        <i class="fa-brands fa-whatsapp text-xl"></i> Konsultasi Langsung
+                        <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp: 083173902295
                     </a>
                 </div>
             </div>
@@ -294,20 +297,20 @@
                                 <i class="fa-solid fa-file-pdf mr-1"></i> Official Proposal Download Center
                             </span>
                             <h2 class="text-3xl md:text-4xl font-bold font-heading mb-4 text-white">
-                                Unduh Proposal Sponsorship Resmi Swarnakasa ITERA 2025/2026
+                                Unduh Proposal Sponsorship Resmi Swarnakasa ITERA
                             </h2>
                             <p class="text-gray-200 text-sm md:text-base leading-relaxed mb-6">
-                                Dapatkan dokumen proposal lengkap mencakup struktur tim, rincian alokasi riset 4 divisi, breakdown anggaran KRTI 2025/2026, serta hak dan keutamaan paket kemitraan secara rinci.
+                                Dapatkan dokumen proposal lengkap mencakup struktur tim, rincian alokasi riset 4 divisi, rancangan operasional KRTI, serta penjelasan manfaat kemitraan secara transparan.
                             </p>
                             <ul class="space-y-3 text-sm text-gray-200 mb-8">
                                 <li class="flex items-center gap-3">
-                                    <i class="fa-solid fa-circle-check text-yellow-custom"></i> Format PDF Siap Cetak (Disertai Surat Pengantar Resmi Kemahasiswaan ITERA)
+                                    <i class="fa-solid fa-circle-check text-yellow-custom"></i> Format PDF Siap Cetak (Disertai Pengantar Resmi Kemahasiswaan ITERA)
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <i class="fa-solid fa-circle-check text-yellow-custom"></i> Rincian Paket Platinum, Gold, Silver, Bronze, dan Skema Custom
+                                    <i class="fa-solid fa-circle-check text-yellow-custom"></i> Penjelasan Skema Kolaborasi Pendanaan & Sponsorship In-Kind Component
                                 </li>
                                 <li class="flex items-center gap-3">
-                                    <i class="fa-solid fa-circle-check text-yellow-custom"></i> Matriks ROI (Return on Investment) & Hak Penempatan Logo
+                                    <i class="fa-solid fa-circle-check text-yellow-custom"></i> Matriks Dampak Inovasi & Hak Penempatan Logo Brand
                                 </li>
                             </ul>
                         </div>
@@ -318,8 +321,8 @@
                                 <div class="w-20 h-20 bg-yellow-custom/20 rounded-full flex items-center justify-center mb-4 border border-yellow-custom/40">
                                     <i class="fa-solid fa-file-pdf text-4xl text-yellow-custom"></i>
                                 </div>
-                                <h3 class="text-xl font-bold font-heading text-white mb-1">PROPOSAL SPONSORSHIP 2025/2026</h3>
-                                <p class="text-xs text-gray-300 mb-6">Ukuran File: 4.2 MB • Format: PDF • Edisi Terbaru</p>
+                                <h3 class="text-xl font-bold font-heading text-white mb-1">PROPOSAL SPONSORSHIP RESMI</h3>
+                                <p class="text-xs text-gray-300 mb-6">Ukuran File: 4.2 MB • Format: PDF • Dokumen Terbaru</p>
                                 
                                 <!-- Dynamic Download Button -->
                                 <a href="javascript:void(0)" 
@@ -331,7 +334,7 @@
                                 <a href="javascript:void(0)" 
                                    @click="alert('Mengunduh Ringkasan Company Profile Swarnakasa ITERA...')"
                                    class="w-full py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-xs transition-colors flex items-center justify-center gap-2">
-                                    <i class="fa-solid fa-file-powerpoint"></i> Unduh Company Profile & Deck Brief
+                                    <i class="fa-solid fa-file-powerpoint"></i> Unduh Company Profile Brief
                                 </a>
                             </div>
                         </div>
@@ -340,131 +343,141 @@
             </div>
         </section>
 
-        <!-- PAKET & SKEMA SPONSORSHIP (PARTNERSHIP TIERS MATRIX) -->
-        <section id="paket-sponsorship" class="py-20 bg-gray-50 dark:bg-dark-slate">
+        <!-- BENTUK KOLABORASI & SKEMA KEMITRAAN FLEKSIBEL (REPLACING RIGID TIERS) -->
+        <section id="skema-kolaborasi" class="py-20 bg-gray-50 dark:bg-dark-slate">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                    <span class="text-yellow-custom font-bold text-xs uppercase tracking-widest mb-2 block">Pilihan Paket Kemitraan</span>
+                    <span class="text-yellow-custom font-bold text-xs uppercase tracking-widest mb-2 block">Bentuk Kerjasama</span>
                     <h2 class="text-3xl md:text-5xl font-bold font-heading text-navy dark:text-white mb-4">
-                        Skema & Tier Sponsorship
+                        Skema Kolaborasi & Bentuk Kemitraan
                     </h2>
                     <p class="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed">
-                        Kami menyediakan berbagai tingkat kemitraan yang fleksibel untuk disesuaikan dengan tujuan pemasaran, program CSR, maupun strategi branding perusahaan Anda.
+                        Kami terbuka untuk berbagai bentuk dukungan dan kerja sama yang disesuaikan secara khusus (*custom partnership*) dengan kebutuhan branding, alokasi CSR, maupun fokus inovasi perusahaan Anda.
                     </p>
                 </div>
 
-                <!-- Cards Grid Tier -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- 4 Collaboration Options Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
                     
-                    <!-- Platinum Tier -->
-                    <div class="bg-white dark:bg-navy rounded-3xl p-8 border-2 border-yellow-custom shadow-2xl relative overflow-hidden flex flex-col justify-between transform hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-                        <div class="absolute top-0 right-0 bg-yellow-custom text-navy font-black text-[10px] uppercase px-4 py-1.5 rounded-bl-xl tracking-wider">
-                            EXCLUSIVE PARTNER
-                        </div>
+                    <!-- Option 1: Funding Support -->
+                    <div class="bg-white dark:bg-navy p-8 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
                         <div>
-                            <div class="w-12 h-12 bg-yellow-custom/20 text-yellow-custom rounded-xl flex items-center justify-center text-2xl mb-4 border border-yellow-custom/40">
-                                <i class="fa-solid fa-crown"></i>
+                            <div class="w-14 h-14 bg-yellow-custom/20 text-yellow-custom rounded-2xl flex items-center justify-center text-3xl mb-6 border border-yellow-custom/40">
+                                <i class="fa-solid fa-hand-holding-dollar"></i>
                             </div>
-                            <h3 class="text-2xl font-bold font-heading text-navy dark:text-white mb-1">PLATINUM SPONSOR</h3>
-                            <p class="text-xs text-yellow-custom font-semibold mb-6">Mitra Utama Eksklusif Risk & Inovasi</p>
-                            
-                            <ul class="space-y-3.5 text-sm text-gray-600 dark:text-gray-300 mb-8">
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-yellow-custom mt-1"></i>
-                                    <span><strong>Logo Ukuran Ekstra Besar</strong> di bodi utama armada drone 4 divisi & jersey resmi tim.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-yellow-custom mt-1"></i>
-                                    <span>Hak pencantuman nama mitra pada nama official wahana (*Powered by Brand*).</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-yellow-custom mt-1"></i>
-                                    <span>Hak pendirian <strong>Exclusive Booth Stand</strong> pada setiap pameran & kompetisi.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-yellow-custom mt-1"></i>
-                                    <span>Publikasi <strong>Dedicated Press Release</strong> bersama Rektorat & media nasional.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-yellow-custom mt-1"></i>
-                                    <span>Akses eksklusif *Recruitment Priority Pass* seluruh anggota tim.</span>
-                                </li>
-                            </ul>
+                            <h3 class="text-2xl font-bold font-heading text-navy dark:text-white mb-3">1. Dukungan Pendanaan Riset & Operasional</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                Pembiayaan langsung untuk alokasi manufaktur bodi komposit serat karbon, pengadaan modul elektronika avonik, biaya pendaftaran & logistik keberangkatan kompetisi Kontes Robot Terbang Indonesia.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-light-blue/40 p-4 rounded-xl text-xs text-gray-600 dark:text-gray-300 space-y-2">
+                                <div class="font-bold text-yellow-custom uppercase tracking-wider mb-1">Feedback Untuk Mitra:</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Penempatan Logo Utama di Bodi Airframe & Jersey Tim</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Publication Feed & Press Release Media Campus</div>
+                            </div>
                         </div>
-                        <a href="https://wa.me/6281234567890?text=Halo%20Tim%20Swarnakasa,%20kami%20tertarik%20mengenai%20Paket%20Platinum%20Sponsor" 
+                        <a href="https://wa.me/6283173902295?text=Halo%20Tim%20Swarnakasa,%20kami%20tertarik%20diskusi%20mengenai%20Dukungan%20Pendanaan%20Riset" 
                            target="_blank"
-                           class="w-full py-3.5 bg-yellow-custom hover:bg-yellow-400 text-navy font-bold rounded-xl text-xs uppercase tracking-widest text-center transition-all shadow-md">
-                            Pilih Paket Platinum
+                           class="mt-8 w-full py-3.5 bg-yellow-custom hover:bg-yellow-400 text-navy font-bold rounded-xl text-xs uppercase tracking-widest text-center transition-all shadow-md">
+                            Diskusi Kemitraan Pendanaan
                         </a>
                     </div>
 
-                    <!-- Gold Tier -->
-                    <div class="bg-white dark:bg-light-blue/40 rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-xl relative overflow-hidden flex flex-col justify-between transform hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <!-- Option 2: In-Kind Component Support -->
+                    <div class="bg-white dark:bg-navy p-8 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
                         <div>
-                            <div class="w-12 h-12 bg-amber-500/20 text-amber-500 rounded-xl flex items-center justify-center text-2xl mb-4 border border-amber-500/40">
-                                <i class="fa-solid fa-award"></i>
+                            <div class="w-14 h-14 bg-blue-500/20 text-blue-500 rounded-2xl flex items-center justify-center text-3xl mb-6 border border-blue-500/40">
+                                <i class="fa-solid fa-plug-circle-bolt"></i>
                             </div>
-                            <h3 class="text-2xl font-bold font-heading text-navy dark:text-white mb-1">GOLD SPONSOR</h3>
-                            <p class="text-xs text-amber-500 font-semibold mb-6">Mitra Utama Branding & Reach</p>
-                            
-                            <ul class="space-y-3.5 text-sm text-gray-600 dark:text-gray-300 mb-8">
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-amber-500 mt-1"></i>
-                                    <span><strong>Logo Ukuran Besar</strong> di sayap bodi drone & bagian dada jersey tim.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-amber-500 mt-1"></i>
-                                    <span>Penempatan logo di backdrop utama pers rilis, banner pylon, & website.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-amber-500 mt-1"></i>
-                                    <span>Posting dedicated promotional feed & story bulanan di media sosial.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-amber-500 mt-1"></i>
-                                    <span>Penyebaran brosur / merchandise produk perusahaan di booth tim.</span>
-                                </li>
-                            </ul>
+                            <h3 class="text-2xl font-bold font-heading text-navy dark:text-white mb-3">2. Sponsorship Komponen & Equipment (In-Kind)</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                Dukungan berupa penyediaan material (Carbon Fiber / Glass Fiber), motor brushless, battery pack High-C, flight controller board, sensor kamera telemetry, perkakas bengkel, maupun lisensi software simulasi.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-light-blue/40 p-4 rounded-xl text-xs text-gray-600 dark:text-gray-300 space-y-2">
+                                <div class="font-bold text-blue-400 uppercase tracking-wider mb-1">Feedback Untuk Mitra:</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Tagging Brand di Konten Uji Terbang & Video Tutorial</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Testimoni Penggunaan Produk Komponen Resmi Tim</div>
+                            </div>
                         </div>
-                        <a href="https://wa.me/6281234567890?text=Halo%20Tim%20Swarnakasa,%20kami%20tertarik%20mengenai%20Paket%20Gold%20Sponsor" 
+                        <a href="https://wa.me/6283173902295?text=Halo%20Tim%20Swarnakasa,%20kami%20tertarik%20diskusi%20mengenai%20In-Kind%20Component%20Sponsorship" 
                            target="_blank"
-                           class="w-full py-3.5 bg-navy dark:bg-light-blue hover:bg-yellow-custom hover:text-navy text-white font-bold rounded-xl text-xs uppercase tracking-widest text-center transition-all shadow border border-gray-600">
-                            Pilih Paket Gold
+                           class="mt-8 w-full py-3.5 bg-navy dark:bg-light-blue hover:bg-yellow-custom hover:text-navy text-white font-bold rounded-xl text-xs uppercase tracking-widest text-center transition-all shadow border border-gray-600">
+                            Diskusi Kemitraan Komponen
                         </a>
                     </div>
 
-                    <!-- Silver & Custom Tier -->
-                    <div class="bg-white dark:bg-light-blue/40 rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-xl relative overflow-hidden flex flex-col justify-between transform hover:-translate-y-2 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Option 3: Joint Research & Talent Program -->
+                    <div class="bg-white dark:bg-navy p-8 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
                         <div>
-                            <div class="w-12 h-12 bg-gray-400/20 text-gray-300 rounded-xl flex items-center justify-center text-2xl mb-4 border border-gray-400/40">
-                                <i class="fa-solid fa-handshake"></i>
+                            <div class="w-14 h-14 bg-emerald-500/20 text-emerald-500 rounded-2xl flex items-center justify-center text-3xl mb-6 border border-emerald-500/40">
+                                <i class="fa-solid fa-network-wired"></i>
                             </div>
-                            <h3 class="text-2xl font-bold font-heading text-navy dark:text-white mb-1">SILVER & CUSTOM</h3>
-                            <p class="text-xs text-gray-400 font-semibold mb-6">Mitra Pendukung & In-Kind Component</p>
-                            
-                            <ul class="space-y-3.5 text-sm text-gray-600 dark:text-gray-300 mb-8">
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-gray-400 mt-1"></i>
-                                    <span><strong>Logo Ukuran Sedang</strong> di jersey, website resmi, & slide presentasi.</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-gray-400 mt-1"></i>
-                                    <span>Pilihan **In-Kind Partnership** (Sponsorship berupa komponen drone, serat karbon, perkakas, atau lisensi software).</span>
-                                </li>
-                                <li class="flex items-start gap-3">
-                                    <i class="fa-solid fa-check text-gray-400 mt-1"></i>
-                                    <span>Mention apresiasi rutin pada konten video dokumentasi youtube & IG.</span>
-                                </li>
-                            </ul>
+                            <h3 class="text-2xl font-bold font-heading text-navy dark:text-white mb-3">3. Riset Kolaborasi & Beasiswa Talenta</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                Penyelenggaraan proyek riset bersama (*joint R&D*) terkait penguasaan teknologi UAV spesifik, pemberian beasiswa pengembangan diri mahasiswa, serta penyediaan fasilitas tempat pelatihan tim.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-light-blue/40 p-4 rounded-xl text-xs text-gray-600 dark:text-gray-300 space-y-2">
+                                <div class="font-bold text-emerald-400 uppercase tracking-wider mb-1">Feedback Untuk Mitra:</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Prioritas Rekrutmen & Magang Anggota Tim Terbaik</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Laporan Progress Riset & Hak Kekayaan Intelektual Bersama</div>
+                            </div>
                         </div>
-                        <a href="https://wa.me/6281234567890?text=Halo%20Tim%20Swarnakasa,%20kami%20tertarik%20mengenai%20Paket%20Silver%20atau%20Custom%20Partnership" 
+                        <a href="https://wa.me/6283173902295?text=Halo%20Tim%20Swarnakasa,%20kami%20tertarik%20diskusi%20mengenai%20Riset%20Kolaborasi%20%26%20Beasiswa" 
                            target="_blank"
-                           class="w-full py-3.5 bg-navy dark:bg-light-blue hover:bg-yellow-custom hover:text-navy text-white font-bold rounded-xl text-xs uppercase tracking-widest text-center transition-all shadow border border-gray-600">
-                            Pilih Paket Silver / Custom
+                           class="mt-8 w-full py-3.5 bg-navy dark:bg-light-blue hover:bg-yellow-custom hover:text-navy text-white font-bold rounded-xl text-xs uppercase tracking-widest text-center transition-all shadow border border-gray-600">
+                            Diskusi Riset Kolaborasi
+                        </a>
+                    </div>
+
+                    <!-- Option 4: Custom Activation & Branding -->
+                    <div class="bg-white dark:bg-navy p-8 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-xl flex flex-col justify-between hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <div>
+                            <div class="w-14 h-14 bg-purple-500/20 text-purple-400 rounded-2xl flex items-center justify-center text-3xl mb-6 border border-purple-500/40">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold font-heading text-navy dark:text-white mb-3">4. Skema Custom & Branding Activation</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                                Penyesuaian skema kemitraan khusus sesuai arahan tim direksi atau departemen marcom/CSR perusahaan Anda, mencakup webinar teknologi, demo penerbangan drone di area mitra, & pembuatan konten kampanye.
+                            </p>
+                            <div class="bg-gray-50 dark:bg-light-blue/40 p-4 rounded-xl text-xs text-gray-600 dark:text-gray-300 space-y-2">
+                                <div class="font-bold text-purple-400 uppercase tracking-wider mb-1">Feedback Untuk Mitra:</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Negosiasi Hak Timbal Balik Secara Maksimal & Fleksibel</div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-500"></i> Fasilitas Demo Flight Eksklusif di Event Perusahaan</div>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/6283173902295?text=Halo%20Tim%20Swarnakasa,%20kami%20tertarik%20diskusi%20mengenai%20Skema%20Custom%20Partnership" 
+                           target="_blank"
+                           class="mt-8 w-full py-3.5 bg-yellow-custom hover:bg-yellow-400 text-navy font-bold rounded-xl text-xs uppercase tracking-widest text-center transition-all shadow-md">
+                            Konsultasi Skema Custom
                         </a>
                     </div>
 
                 </div>
+
+                <!-- ALUR MUDAH BERMITRA -->
+                <div class="bg-navy/90 text-white rounded-3xl p-8 md:p-12 border border-gray-700 shadow-2xl relative overflow-hidden" data-aos="fade-up">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <span class="text-yellow-custom font-extrabold text-xs uppercase tracking-widest mb-1 block">Simple Workflow</span>
+                        <h3 class="text-2xl md:text-3xl font-bold font-heading">Tahapan Mudah Menjadi Mitra Swarnakasa</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10 text-center">
+                        <div class="p-4">
+                            <div class="w-12 h-12 bg-yellow-custom text-navy rounded-full font-black text-xl flex items-center justify-center mx-auto mb-4 shadow-lg">1</div>
+                            <h4 class="font-bold text-lg text-yellow-custom mb-2">Konsultasi Awal</h4>
+                            <p class="text-xs text-gray-300 leading-relaxed">Hubungi tim kami via WhatsApp (083173902295) atau isi formulir online untuk menyampaikan minat kerja sama.</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="w-12 h-12 bg-yellow-custom text-navy rounded-full font-black text-xl flex items-center justify-center mx-auto mb-4 shadow-lg">2</div>
+                            <h4 class="font-bold text-lg text-yellow-custom mb-2">Kesepakatan MoU</h4>
+                            <p class="text-xs text-gray-300 leading-relaxed">Menyusun naskah kesepakatan (*MoU*) untuk menyelaraskan bentuk dukungan dan timbal balik manfaat bagi mitra.</p>
+                        </div>
+                        <div class="p-4">
+                            <div class="w-12 h-12 bg-yellow-custom text-navy rounded-full font-black text-xl flex items-center justify-center mx-auto mb-4 shadow-lg">3</div>
+                            <h4 class="font-bold text-lg text-yellow-custom mb-2">Eksekusi & Report</h4>
+                            <p class="text-xs text-gray-300 leading-relaxed">Pelaksanaan penempatan branding/riset disertai penyampaian laporan transparansi resmi kepada mitra.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -499,7 +512,7 @@
             </div>
         </section>
 
-        <!-- FORMULIR KONTAK & HOTLINE SPONSORSHIP -->
+        <!-- FORMULIR KONTAK & HOTLINE SPONSORSHIP (NOMOR WA TER-UPDATE: 083173902295) -->
         <section id="contact-sponsorship" class="py-20 bg-gray-50 dark:bg-dark-slate">
             <div class="container mx-auto px-6">
                 <div class="max-w-5xl mx-auto bg-white dark:bg-light-blue/50 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-2xl overflow-hidden">
@@ -510,13 +523,13 @@
                             <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-yellow-custom/10 rounded-full blur-2xl"></div>
                             
                             <div>
-                                <span class="text-yellow-custom font-extrabold text-xs uppercase tracking-widest mb-2 block">Direct Contact</span>
+                                <span class="text-yellow-custom font-extrabold text-xs uppercase tracking-widest mb-2 block">Direct Contact Hotline</span>
                                 <h3 class="text-3xl font-bold font-heading mb-4">Mari Berdiskusi Peluang Kemitraan</h3>
                                 <p class="text-gray-300 text-sm leading-relaxed mb-8">
                                     Tim Sponsorship & Humas Swarnakasa ITERA siap membantu menjawab pertanyaan, mempresentasikan proposal, maupun menyusun penawaran custom sesuai kebutuhan brand Anda.
                                 </p>
 
-                                <div class="space-y-6">
+                                <div class="space-y-6 mb-8">
                                     <!-- Person 1 -->
                                     <div class="flex items-center gap-4">
                                         <img src="./images/gallery/Nanda.jpeg" alt="Ananda Oktaviana" class="w-12 h-12 rounded-full object-cover border-2 border-yellow-custom">
@@ -535,13 +548,17 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="bg-navy/80 p-4 rounded-xl border border-yellow-custom/30 text-xs text-gray-200">
+                                    <i class="fa-solid fa-phone text-yellow-custom mr-2"></i> Nomor Hotline Official: <strong class="text-yellow-custom text-sm ml-1">083173902295</strong>
+                                </div>
                             </div>
 
-                            <div class="mt-10 pt-6 border-t border-white/10">
-                                <a href="https://wa.me/6281234567890?text=Halo%20Tim%20Swarnakasa,%20saya%20tertarik%20mengenai%20sponsorship" 
+                            <div class="mt-8 pt-6 border-t border-white/10">
+                                <a href="https://wa.me/6283173902295?text=Halo%20Tim%20Swarnakasa,%20saya%20tertarik%20mengenai%20sponsorship" 
                                    target="_blank"
                                    class="inline-flex items-center gap-2 px-6 py-3 bg-yellow-custom text-navy font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg hover:bg-yellow-400 transition-colors">
-                                    <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp Partnership Hotline
+                                    <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp Hotline (083173902295)
                                 </a>
                             </div>
                         </div>
@@ -551,7 +568,7 @@
                             <h3 class="text-2xl font-bold font-heading text-navy dark:text-white mb-2">Formulir Pengajuan Kemitraan</h3>
                             <p class="text-xs text-gray-500 dark:text-gray-300 mb-6">Isi formulir di bawah ini dan tim kami akan merespons dalam waktu 1x24 jam.</p>
 
-                            <form @submit.prevent="alert('Terima kasih! Formulir pengajuan kemitraan Anda telah diterima. Tim Sponsorship Swarnakasa akan segera menghubungi Anda.')" class="space-y-4">
+                            <form @submit.prevent="alert('Terima kasih! Formulir pengajuan kemitraan Anda telah diterima. Tim Sponsorship Swarnakasa akan segera menghubungi Anda melalui nomor 083173902295.')" class="space-y-4">
                                 <div>
                                     <label class="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1">Nama Lengkap / Perwakilan</label>
                                     <input type="text" required placeholder="Contoh: Budi Santoso" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-navy border border-gray-300 dark:border-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-custom">
@@ -563,19 +580,18 @@
                                         <input type="text" required placeholder="Contoh: PT Aero Teknologi" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-navy border border-gray-300 dark:border-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-custom">
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1">Email Perusahaan</label>
-                                        <input type="email" required placeholder="mitra@perusahaan.com" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-navy border border-gray-300 dark:border-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-custom">
+                                        <label class="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1">Email / Kontak HP Perusahaan</label>
+                                        <input type="text" required placeholder="mitra@perusahaan.com / 0812xxx" class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-navy border border-gray-300 dark:border-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-custom">
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1">Pilihan Paket / Skema Kemitraan</label>
+                                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-200 mb-1">Bentuk Kerjasama Yang Diminati</label>
                                     <select class="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-navy border border-gray-300 dark:border-gray-600 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-custom">
-                                        <option value="platinum">Platinum Sponsor (Mitra Utama)</option>
-                                        <option value="gold">Gold Sponsor</option>
-                                        <option value="silver">Silver Sponsor</option>
-                                        <option value="in-kind">In-Kind Component / Material Sponsor</option>
-                                        <option value="custom">Custom Partnership / Diskusi Khusus</option>
+                                        <option value="funding">Dukungan Pendanaan Riset & Operasional KRTI</option>
+                                        <option value="in-kind">Sponsorship Komponen & Equipment (In-Kind)</option>
+                                        <option value="research">Riset Kolaborasi & Beasiswa Talenta</option>
+                                        <option value="custom">Skema Custom & Branding Activation</option>
                                     </select>
                                 </div>
 
@@ -638,8 +654,11 @@
                         Gedung Laboratorium Teknik 3, Kampus Institut Teknologi Sumatera (ITERA)<br>
                         Jl. Terusan Ryacudu, Way Huwi, Kec. Jati Agung, Lampung Selatan 35365
                     </p>
-                    <p class="text-sm text-gray-300">
+                    <p class="text-sm text-gray-300 mb-1">
                         Email: <a href="mailto:swarnakasa.team.itera@gmail.com" class="text-yellow-custom hover:underline">swarnakasa.team.itera@gmail.com</a>
+                    </p>
+                    <p class="text-sm text-gray-300">
+                        Hotline WA: <a href="https://wa.me/6283173902295" class="text-yellow-custom font-bold hover:underline">083173902295</a>
                     </p>
                 </div>
             </div>
