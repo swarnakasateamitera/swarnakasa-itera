@@ -1503,8 +1503,12 @@
       }
 
       .news-card:hover .news-title {
-        color: #daa520;
+        color: #b8860b;
         transform: translateY(-0.5px);
+      }
+
+      .dark .news-card:hover .news-title {
+        color: #f1d00a;
       }
 
       /* News card description animation */
@@ -1513,8 +1517,12 @@
       }
 
       .news-card:hover .news-description {
-        color: #e7dab0;
+        color: #374151;
         transform: translateY(-0.25px);
+      }
+
+      .dark .news-card:hover .news-description {
+        color: #d1d5db;
       }
 
       /* News card link animation */
@@ -1739,52 +1747,65 @@
     </a>
 
     <header x-data="{ mobileMenuOpen: false, isSticky: false }" 
-            @scroll.window="isSticky = window.scrollY > 20" 
-            class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#21325e]" 
-            :class="{ 'bg-white dark:bg-[#1a2646] shadow-xl border-b border-gray-200 dark:border-gray-800 py-3': isSticky, 'bg-[#21325e] shadow-md py-4': !isSticky }">
-        <nav class="container mx-auto px-6" role="navigation" aria-label="Main navigation">
-            <div class="flex justify-between items-center">
-                <a href="#home" class="flex items-center gap-3" aria-label="Swarnakasa ITERA - Homepage">
-                    <img src="./images/Logo_swarna.png" alt="Logo Swarnakasa ITERA" class="h-10 w-auto">
-                    <span class="text-xl font-bold font-heading transition-colors" :class="{ 'text-[#21325e] dark:text-white': isSticky, 'text-white': !isSticky }">SWARNAKASA</span>
-                </a>
-                
-                <ul class="hidden md:flex items-center space-x-8 font-semibold text-sm transition-colors" 
-                    :class="{ 'text-[#21325e] dark:text-gray-100': isSticky, 'text-white': !isSticky }" role="menubar">
-                    <li role="none"><a href="#home" class="hover:text-yellow-custom transition-colors" role="menuitem">Home</a></li>
-                    <li role="none"><a href="#about" class="hover:text-yellow-custom transition-colors" role="menuitem">About</a></li>
-                    <li role="none"><a href="gallery.html" class="hover:text-yellow-custom transition-colors" role="menuitem">Gallery</a></li>
-                    <li role="none"><a href="sponsorship.html" class="hover:text-yellow-custom transition-colors" role="menuitem">Sponsorship</a></li>
-                    <li role="none"><a href="#achievements" class="hover:text-yellow-custom transition-colors" role="menuitem">Prestasi</a></li>
-                    <li role="none"><a href="#news" class="hover:text-yellow-custom transition-colors" role="menuitem">News</a></li>
-                    <li role="none"><a href="#team" class="hover:text-yellow-custom transition-colors" role="menuitem">Team</a></li>
-                    <li role="none"><a href="#contact" class="hover:text-yellow-custom transition-colors" role="menuitem">Contact</a></li>
-                </ul>
-                <div class="flex items-center space-x-4">
-                    <button @click="darkMode = !darkMode; localStorage.setItem('darkMode', darkMode)" 
-                            class="p-2 rounded-full transition-colors" 
-                            :class="{ 'text-[#21325e] dark:text-yellow-custom hover:bg-gray-100 dark:hover:bg-white/10': isSticky, 'text-yellow-custom hover:bg-white/10': !isSticky }"
-                            aria-label="Toggle dark mode">
+            x-init="isSticky = (window.scrollY > 20)"
+            @scroll.window="isSticky = (window.scrollY > 20)" 
+            class="fixed top-0 left-0 w-full z-50 transition-all duration-300" 
+            :class="isSticky ? 'bg-white dark:bg-navy shadow-md py-3' : 'bg-transparent py-4'">
+    <nav class="container mx-auto px-6 py-1" role="navigation" aria-label="Main navigation">
+        <div class="flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-3" aria-label="Swarnakasa ITERA - Homepage">
+                <img src="/images/Logo_swarna.png" alt="Logo Swarnakasa ITERA" class="h-10 w-auto">
+                <span class="text-xl font-extrabold font-heading transition-colors duration-300"
+                      :class="isSticky ? 'text-navy dark:text-white' : 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'">
+                    SWARNAKASA
+                </span>
+            </a>
+            
+            <ul class="hidden md:flex items-center space-x-8 transition-colors duration-300" 
+                :class="isSticky ? 'text-navy dark:text-white font-semibold' : 'text-white font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'" 
+                role="menubar">
+                <li role="none"><a href="#home" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Home</a></li>
+                <li role="none"><a href="#about" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">About</a></li>
+                <li role="none"><a href="gallery.html" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Gallery</a></li>
+                <li role="none"><a href="sponsorship.html" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Sponsorship</a></li>
+                <li role="none"><a href="#achievements" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Prestasi</a></li>
+                <li role="none"><a href="#news" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">News</a></li>
+                <li role="none"><a href="#team" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Team</a></li>
+                <li role="none"><a href="#contact" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Contact</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <button @click="darkMode = !darkMode; localStorage.setItem('darkMode', darkMode)" 
+                        class="p-2 rounded-full transition-colors duration-300" 
+                        :class="isSticky ? 'text-navy dark:text-yellow-custom hover:bg-gray-200 dark:hover:bg-light-blue' : 'text-white hover:bg-white/20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'" 
+                        aria-label="Toggle dark mode" 
+                        :aria-pressed="darkMode.toString()">
                     <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                     <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
                 </button>
-                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 rounded-md text-navy dark:text-white" aria-label="Toggle mobile menu" :aria-expanded="mobileMenuOpen.toString()" aria-controls="mobile-menu">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" 
+                        class="md:hidden p-2 rounded-md transition-colors duration-300" 
+                        :class="isSticky ? 'text-navy dark:text-white hover:bg-gray-100 dark:hover:bg-light-blue' : 'text-white hover:bg-white/20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'" 
+                        aria-label="Toggle mobile menu" 
+                        :aria-expanded="mobileMenuOpen.toString()" 
+                        aria-controls="mobile-menu">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
                 </button>
             </div>
         </div>
-        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden mt-4 bg-white dark:bg-light-blue rounded-lg shadow-lg p-4" id="mobile-menu">
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden mt-4 bg-white/95 dark:bg-navy/95 backdrop-blur-md rounded-lg shadow-xl p-4 border border-gray-100 dark:border-gray-800" id="mobile-menu">
              <ul class="flex flex-col space-y-4 font-semibold text-navy dark:text-white" role="menu">
                 <li role="none"><a href="#home" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">Home</a></li>
                 <li role="none"><a href="#about" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">About</a></li>
                 <li role="none"><a href="gallery.html" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">Gallery</a></li>
+                <li role="none"><a href="sponsorship.html" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">Sponsorship</a></li>
                 <li role="none"><a href="#achievements" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">Prestasi</a></li>
                 <li role="none"><a href="#news" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">News</a></li>
                 <li role="none"><a href="#team" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block" role="menuitem">Team</a></li>
                 <li><a href="#contact" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Contact</a></li>
             </ul>
         </div>
-    </nav>    </header>
+    </nav>
+</header>
 
     <main id="main-content">
         <section id="home" class="relative h-screen flex items-center justify-center text-white">
@@ -1863,7 +1884,7 @@
               <div class="division-card bg-white dark:bg-light-blue rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-8 text-center flex flex-col items-center hover:shadow-xl hover:scale-105 transition-all duration-300 w-full md:w-80 lg:w-96" data-aos="fade-up" data-aos-delay="100">
                 <div class="division-icon bg-yellow-custom inline-flex items-center justify-center p-6 rounded-full mb-6 shadow-lg">
                   <!-- Custom PNG Icon: Technical -->
-                  <img src="./images/gallery/Technical.png" alt="Technical Division Icon" class="w-16 h-16 object-contain filter drop-shadow-md">
+                  <img src="/images/gallery/Technical.png" alt="Technical Division Icon" class="w-16 h-16 object-contain filter drop-shadow-md">
                 </div>
                 <h3 class="division-title text-2xl font-bold font-heading mb-4 text-navy dark:text-white">Technical Division</h3>
                 <div class="division-description text-gray-600 dark:text-gray-200 leading-relaxed text-left">
@@ -1881,7 +1902,7 @@
               <div class="division-card bg-white dark:bg-light-blue rounded-lg shadow-lg border border-gray-200 dark:border-gray-600 p-8 text-center flex flex-col items-center hover:shadow-xl hover:scale-105 transition-all duration-300 w-full md:w-80 lg:w-96" data-aos="fade-up" data-aos-delay="200">
                 <div class="division-icon bg-yellow-custom inline-flex items-center justify-center p-6 rounded-full mb-6 shadow-lg">
                   <!-- Custom PNG Icon: Non-Technical -->
-                  <img src="./images/gallery/Non-Technical.png" alt="Non-Technical Division Icon" class="w-16 h-16 object-contain filter drop-shadow-md">
+                  <img src="/images/gallery/Non-Technical.png" alt="Non-Technical Division Icon" class="w-16 h-16 object-contain filter drop-shadow-md">
                 </div>
                 <h3 class="division-title text-2xl font-bold font-heading mb-4 text-navy dark:text-white">Non-Technical Division</h3>
                 <div class="division-description text-gray-600 dark:text-gray-200 leading-relaxed text-left">
@@ -2020,31 +2041,47 @@
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold font-heading text-center mb-12">Berita & Informasi</h2>
         <div class="grid md:grid-cols-3 gap-8">
+            <!-- Card 1: Prototype -->
             <div class="news-card bg-white dark:bg-light-blue rounded-lg shadow-lg overflow-hidden group border border-gray-200 dark:border-gray-600">
-                <img src="./images/gallery/4.jpg" alt="Prototype Terbaru Swarnakasa" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                <div class="relative overflow-hidden h-48">
+                    <img src="./images/news_prototype.png" alt="Peluncuran Prototype Racing Plane" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
                 <div class="p-6">
+                    <span class="inline-block px-2 py-0.5 bg-yellow-custom/10 text-yellow-600 dark:text-yellow-400 rounded text-xs font-semibold mb-2">Teknologi</span>
                     <p class="text-sm text-gray-500 dark:text-gray-400">1 Juli 2025</p>
-                    <h3 class="news-title font-heading text-xl font-bold mt-2 mb-2">Swarnakasa Berhasil Meluncurkan Prototype Terbaru</h3>
-                    <p class="news-description text-sm mb-4">Swarnakasa berhasil mengembangkan dan menguji coba maiden flight prototype racing plane generasi ketiga...</p>
-                    <a href="gallery.html" class="news-link font-bold text-yellow-custom hover:underline">Baca Selengkapnya →</a>
+                    <h3 class="news-title font-heading text-xl font-bold mt-2 mb-2 text-gray-900 dark:text-white">Swarnakasa Berhasil Meluncurkan Prototype Terbaru</h3>
+                    <p class="news-description text-sm mb-4 text-gray-600 dark:text-gray-300">Swarnakasa berhasil mengembangkan prototype racing plane generasi ketiga dengan performa lebih tinggi dan sistem kendali yang lebih stabil.</p>
+                    <a href="#" class="news-link font-bold text-yellow-custom hover:underline">Baca Selengkapnya →</a>
                 </div>
             </div>
+            <!-- Card 2: Rekrutmen -->
             <div class="news-card bg-white dark:bg-light-blue rounded-lg shadow-lg overflow-hidden group border border-gray-200 dark:border-gray-600">
-                <img src="./images/gallery/3.jpg" alt="Open Recruitment Anggota Baru" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                <div class="relative overflow-hidden h-48">
+                    <img src="./images/news_recruitment.png" alt="Open Recruitment 2025" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
                 <div class="p-6">
+                    <span class="inline-block px-2 py-0.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded text-xs font-semibold mb-2">Rekrutmen</span>
                     <p class="text-sm text-gray-500 dark:text-gray-400">20 Juni 2025</p>
-                    <h3 class="news-title font-heading text-xl font-bold mt-2 mb-2">Open Recruitment Anggota Baru 2025</h3>
-                    <p class="news-description text-sm mb-4">Pendaftaran untuk anggota baru angkatan 2025 resmi dibuka. Segera daftarkan dirimu menjadi bagian dari kami!</p>
-                    <a href="gallery.html" class="news-link font-bold text-yellow-custom hover:underline">Baca Selengkapnya →</a>
+                    <h3 class="news-title font-heading text-xl font-bold mt-2 mb-2 text-gray-900 dark:text-white">Open Recruitment Anggota Baru 2025</h3>
+                    <p class="news-description text-sm mb-4 text-gray-600 dark:text-gray-300">Pendaftaran untuk anggota baru angkatan 2025 resmi dibuka. Bergabunglah bersama kami dan jadilah bagian dari tim robot terbang terbaik ITERA!</p>
+                    <a href="#" class="news-link font-bold text-yellow-custom hover:underline">Baca Selengkapnya →</a>
                 </div>
             </div>
+            <!-- Card 3: Finalis KRTI 2025 -->
             <div class="news-card bg-white dark:bg-light-blue rounded-lg shadow-lg overflow-hidden group border border-gray-200 dark:border-gray-600">
-                <img src="./images/TD.png" alt="Divisi TD Finalis Universitas Andalas Padang" class="w-full h-48 object-cover group-hover:scale-105 transition-transform">
+                <div class="relative overflow-hidden h-48">
+                    <img src="./images/news_krti.png" alt="Swarnakasa Finalis KRTI 2025" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <span class="absolute top-3 left-3 bg-yellow-custom text-navy text-xs font-extrabold px-2 py-1 rounded-full shadow">🏆 Prestasi</span>
+                </div>
                 <div class="p-6">
-                    <p class="text-sm text-gray-500 dark:text-gray-400">5 Juni 2025</p>
-                    <h3 class="news-title font-heading text-xl font-bold mt-2 mb-2">Swarnakasa Divisi TD Menjadi Finalis di Universitas Andalas Padang</h3>
-                    <p class="news-description text-sm mb-4">Tim Swarnakasa dari divisi Technology Development (TD) berhasil lolos menjadi finalis pada ajang kompetisi di Universitas Andalas Padang.</p>
-                    <a href="gallery.html" class="news-link font-bold text-yellow-custom hover:underline">Baca Selengkapnya →</a>
+                    <span class="inline-block px-2 py-0.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded text-xs font-semibold mb-2">Kompetisi</span>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Juli 2025</p>
+                    <h3 class="news-title font-heading text-xl font-bold mt-2 mb-2 text-gray-900 dark:text-white">Swarnakasa ITERA Raih Gelar Finalis KRTI 2025!</h3>
+                    <p class="news-description text-sm mb-4 text-gray-600 dark:text-gray-300">Tim Swarnakasa ITERA berhasil melangkah sebagai finalis dalam Kontes Robot Terbang Indonesia (KRTI) 2025 yang diselenggarakan di Universitas Andalas, Padang.</p>
+                    <a href="#" class="news-link font-bold text-yellow-custom hover:underline">Baca Selengkapnya →</a>
                 </div>
             </div>
         </div>
@@ -2062,28 +2099,28 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 text-center team-grid max-w-7xl mx-auto px-4" style="padding: 3rem 1rem;">
                     <div class="team-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="team-image-container p-6">
-                            <img src="./images/gallery/arris.png" alt="Foto General Manager" class="w-36 h-36 lg:w-40 lg:h-40 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
+                            <img src="/images/gallery/arris.png" alt="Foto General Manager" class="w-36 h-36 lg:w-40 lg:h-40 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
                         </div>
                         <h4 class="font-heading text-xl font-bold text-navy dark:text-white">Arris Ahmad Fadillah</h4>
                         <p class="text-base text-yellow-custom font-semibold">General Manager</p>
                     </div>
                     <div class="team-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="300">
                         <div class="team-image-container p-6">
-                            <img src="./images/gallery/Farhan.jfif" alt="Foto Head of Technical Division" class="w-36 h-36 lg:w-40 lg:h-40 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
+                            <img src="/images/gallery/Farhan.jfif" alt="Foto Kadiv Tech" class="w-36 h-36 lg:w-40 lg:h-40 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
                         </div>
-                        <h4 class="font-heading text-xl font-bold text-navy dark:text-white">Muhammad Farhan Yusuf</h4>
+                        <h4 class="font-heading text-xl font-bold text-navy dark:text-white">M. Farhan Yusuf A.</h4>
                         <p class="text-base text-yellow-custom font-semibold">Head of Technical Division</p>
                     </div>
                     <div class="team-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
                         <div class="team-image-container p-6">
-                            <img src="./images/gallery/Nanda.jpeg" alt="Foto Kadiv Non-tech" class="w-36 h-36 lg:w-40 lg:h-40 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
+                            <img src="/images/gallery/Nanda.jpeg" alt="Foto Kadiv Non-tech" class="w-36 h-36 lg:w-40 lg:h-40 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
                         </div>
                         <h4 class="font-heading text-xl font-bold text-navy dark:text-white">Ananda Oktaviana</h4>
                         <p class="text-base text-yellow-custom font-semibold">Head of Non-Technical Division</p>
                     </div>
                     <div class="team-card flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
                         <div class="team-image-container p-6">
-                            <img src="./images/gallery/Zahra.jpeg" alt="Foto Humas" class="w-36 h-36 lg:w-40 lg:h-40 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
+                            <img src="/images/gallery/Zahra.jpeg" alt="Foto Humas" class="w-36 h-36 lg:w-40 lg:h-40 rounded-full object-cover mb-4" style="border: 5px solid #f1d00a !important; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 4px 15px rgba(0, 0, 0, 0.2);">
                         </div>
                         <h4 class="font-heading text-xl font-bold text-navy dark:text-white">Zahra Salim</h4>
                         <p class="text-base text-yellow-custom font-semibold">External and Relation</p>

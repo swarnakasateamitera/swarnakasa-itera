@@ -108,51 +108,61 @@
       }">
 
     <!-- HEADER / NAVIGATION -->
+    <!-- HEADER / NAVIGATION -->
     <header x-data="{ mobileMenuOpen: false, isSticky: false }" 
-            @scroll.window="isSticky = window.scrollY > 20" 
-            class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#21325e]" 
-            :class="{ 'bg-white dark:bg-[#1a2646] shadow-xl border-b border-gray-200 dark:border-gray-800 py-3': isSticky, 'bg-[#21325e] shadow-md py-4': !isSticky }">
+            x-init="isSticky = (window.scrollY > 20)"
+            @scroll.window="isSticky = (window.scrollY > 20)" 
+            class="fixed top-0 left-0 w-full z-50 transition-all duration-300" 
+            :class="isSticky ? 'bg-white dark:bg-navy shadow-md py-3' : 'bg-transparent py-4'">
         <nav class="container mx-auto px-6" role="navigation" aria-label="Main navigation">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center gap-3" aria-label="Swarnakasa ITERA - Homepage">
                     <img src="./images/Logo_swarna.png" alt="Logo Swarnakasa ITERA" class="h-10 w-auto">
-                    <span class="text-xl font-bold font-heading transition-colors" :class="{ 'text-[#21325e] dark:text-white': isSticky, 'text-white': !isSticky }">SWARNAKASA</span>
+                    <span class="text-xl font-extrabold font-heading transition-colors duration-300" 
+                          :class="isSticky ? 'text-navy dark:text-white' : 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'">
+                        SWARNAKASA
+                    </span>
                 </a>
                 
-                <ul class="hidden md:flex items-center space-x-8 font-semibold text-sm transition-colors" 
-                    :class="{ 'text-[#21325e] dark:text-gray-100': isSticky, 'text-white': !isSticky }" role="menubar">
-                    <li role="none"><a href="index.html#home" class="hover:text-yellow-custom transition-colors" role="menuitem">Home</a></li>
-                    <li role="none"><a href="index.html#about" class="hover:text-yellow-custom transition-colors" role="menuitem">About</a></li>
-                    <li role="none"><a href="gallery.html" class="text-yellow-custom font-bold border-b-2 border-yellow-custom pb-1" role="menuitem">Gallery</a></li>
-                    <li role="none"><a href="sponsorship.html" class="hover:text-yellow-custom transition-colors" role="menuitem">Sponsorship</a></li>
-                    <li role="none"><a href="index.html#achievements" class="hover:text-yellow-custom transition-colors" role="menuitem">Prestasi</a></li>
-                    <li role="none"><a href="index.html#news" class="hover:text-yellow-custom transition-colors" role="menuitem">News</a></li>
-                    <li role="none"><a href="index.html#team" class="hover:text-yellow-custom transition-colors" role="menuitem">Team</a></li>
-                    <li role="none"><a href="index.html#contact" class="hover:text-yellow-custom transition-colors" role="menuitem">Contact</a></li>
+                <ul class="hidden md:flex items-center space-x-8 font-semibold text-sm transition-colors duration-300" 
+                    :class="isSticky ? 'text-navy dark:text-gray-100 font-semibold' : 'text-white font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'" 
+                    role="menubar">
+                    <li role="none"><a href="index.html#home" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Home</a></li>
+                    <li role="none"><a href="index.html#about" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">About</a></li>
+                    <li role="none"><a href="gallery.html" class="text-yellow-custom font-extrabold transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Gallery</a></li>
+                    <li role="none"><a href="sponsorship.html" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Sponsorship</a></li>
+                    <li role="none"><a href="index.html#achievements" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Prestasi</a></li>
+                    <li role="none"><a href="index.html#news" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">News</a></li>
+                    <li role="none"><a href="index.html#team" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Team</a></li>
+                    <li role="none"><a href="index.html#contact" class="hover:text-yellow-custom transition-all duration-200 hover:scale-105 inline-block" role="menuitem">Contact</a></li>
                 </ul>
 
                 <div class="flex items-center space-x-4">
                     <!-- Dark Mode Toggle Button -->
                     <button @click="darkMode = !darkMode; localStorage.setItem('darkMode', darkMode)" 
-                            class="p-2 rounded-full transition-colors" 
-                            :class="{ 'text-[#21325e] dark:text-yellow-custom hover:bg-gray-100 dark:hover:bg-white/10': isSticky, 'text-yellow-custom hover:bg-white/10': !isSticky }"
+                            class="p-2 rounded-full transition-colors duration-300" 
+                            :class="isSticky ? 'text-navy dark:text-yellow-custom hover:bg-gray-200 dark:hover:bg-light-blue' : 'text-white hover:bg-white/20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'"
                             aria-label="Toggle dark mode">
                         <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                         <svg x-show="darkMode" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-custom" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
                     </button>
                     <!-- Mobile Hamburger Menu Button -->
-                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2 rounded-md text-white" aria-label="Toggle mobile menu">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" 
+                            class="md:hidden p-2 rounded-md transition-colors duration-300" 
+                            :class="isSticky ? 'text-navy dark:text-white hover:bg-gray-100 dark:hover:bg-light-blue' : 'text-white hover:bg-white/20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'"
+                            aria-label="Toggle mobile menu">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
                     </button>
                 </div>
             </div>
 
             <!-- Mobile Drawer -->
-            <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" x-transition class="md:hidden mt-4 bg-navy dark:bg-light-blue rounded-lg shadow-xl p-6 border border-white/10">
-                <ul class="flex flex-col space-y-4 font-semibold text-white">
+            <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" x-transition class="md:hidden mt-4 bg-white/95 dark:bg-navy/95 backdrop-blur-md rounded-lg shadow-xl p-4 border border-gray-100 dark:border-gray-800">
+                <ul class="flex flex-col space-y-4 font-semibold text-navy dark:text-white">
                     <li><a href="index.html#home" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Home</a></li>
                     <li><a href="index.html#about" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">About</a></li>
                     <li><a href="gallery.html" @click="mobileMenuOpen=false" class="text-yellow-custom font-bold block">Gallery</a></li>
+                    <li><a href="sponsorship.html" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Sponsorship</a></li>
                     <li><a href="index.html#achievements" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Prestasi</a></li>
                     <li><a href="index.html#news" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">News</a></li>
                     <li><a href="index.html#team" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Team</a></li>
@@ -162,9 +172,9 @@
         </nav>
     </header>
 
-    <main class="flex-grow pt-24">
+    <main class="flex-grow pt-0">
         <!-- HERO BANNER SECTION -->
-        <section class="relative bg-navy py-20 text-white overflow-hidden">
+        <section class="relative bg-navy pt-28 pb-20 text-white overflow-hidden">
             <div class="absolute inset-0 bg-cover bg-center opacity-25" style="background-image: url('/images/bg.jpg');"></div>
             <div class="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/90 to-slate-50 dark:to-navy"></div>
             <div class="relative max-w-6xl mx-auto px-6 text-center z-10" data-aos="fade-up">
@@ -615,8 +625,8 @@
                 <!-- SUB-SECTION 3.1: TECHNOLOGY DEVELOPMENT (TD) -->
                 <div id="divisi-td" class="bg-white dark:bg-light-blue/50 rounded-3xl p-8 md:p-12 border border-gray-200 dark:border-gray-700 shadow-xl" data-aos="fade-up">
                     <div class="flex flex-col md:flex-row items-center gap-8 mb-10 pb-8 border-b border-gray-200 dark:border-gray-700">
-                        <div class="w-32 h-32 md:w-40 md:h-40 flex-shrink-0 bg-navy/20 dark:bg-white/10 p-1.5 rounded-2xl shadow-xl border border-yellow-custom/60 flex items-center justify-center overflow-hidden group">
-                            <img src="./images/LOGO_TD.png" alt="Logo Technology Development" class="w-full h-full object-contain scale-115 transform group-hover:scale-125 transition-transform duration-300">
+                        <div class="w-36 h-36 md:w-44 md:h-44 flex-shrink-0 bg-navy/20 dark:bg-white/10 p-2 rounded-2xl shadow-xl border border-yellow-custom/60 flex items-center justify-center overflow-hidden group">
+                            <img src="./images/LOGO_TD.png" alt="Logo Technology Development" class="w-full h-full object-contain scale-[1.35] transform group-hover:scale-[1.5] transition-transform duration-300">
                         </div>
                         <div>
                             <span class="inline-block px-3 py-1 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-lg text-xs font-bold mb-2">
@@ -692,8 +702,8 @@
                 <!-- SUB-SECTION 3.2: RACING PLANE (RP) -->
                 <div id="divisi-rp" class="bg-white dark:bg-light-blue/50 rounded-3xl p-8 md:p-12 border border-gray-200 dark:border-gray-700 shadow-xl" data-aos="fade-up">
                     <div class="flex flex-col md:flex-row items-center gap-8 mb-10 pb-8 border-b border-gray-200 dark:border-gray-700">
-                        <div class="w-32 h-32 md:w-40 md:h-40 flex-shrink-0 bg-navy/20 dark:bg-white/10 p-1.5 rounded-2xl shadow-xl border border-yellow-custom/60 flex items-center justify-center overflow-hidden group">
-                            <img src="./images/LOGO_RP.png" alt="Logo Racing Plane" class="w-full h-full object-contain scale-115 transform group-hover:scale-125 transition-transform duration-300">
+                        <div class="w-36 h-36 md:w-44 md:h-44 flex-shrink-0 bg-navy/20 dark:bg-white/10 p-2 rounded-2xl shadow-xl border border-yellow-custom/60 flex items-center justify-center overflow-hidden group">
+                            <img src="./images/LOGO_RP.png" alt="Logo Racing Plane" class="w-full h-full object-contain scale-[1.35] transform group-hover:scale-[1.5] transition-transform duration-300">
                         </div>
                         <div>
                             <span class="inline-block px-3 py-1 bg-red-500/10 text-red-600 dark:text-red-400 rounded-lg text-xs font-bold mb-2">
@@ -769,8 +779,8 @@
                 <!-- SUB-SECTION 3.3: FIXED WING (FW) -->
                 <div id="divisi-fw" class="bg-white dark:bg-light-blue/50 rounded-3xl p-8 md:p-12 border border-gray-200 dark:border-gray-700 shadow-xl" data-aos="fade-up">
                     <div class="flex flex-col md:flex-row items-center gap-8 mb-10 pb-8 border-b border-gray-200 dark:border-gray-700">
-                        <div class="w-36 h-36 md:w-48 md:h-48 flex-shrink-0 bg-navy/20 dark:bg-white/10 p-1 rounded-2xl shadow-xl border-2 border-yellow-custom/70 flex items-center justify-center overflow-hidden group">
-                            <img src="./images/LOGO_FW.png" alt="Logo Fixed Wing" class="w-full h-full object-contain scale-145 transform group-hover:scale-160 transition-transform duration-300">
+                        <div class="w-36 h-36 md:w-44 md:h-44 flex-shrink-0 bg-navy/20 dark:bg-white/10 p-2 rounded-2xl shadow-xl border border-yellow-custom/60 flex items-center justify-center overflow-hidden group">
+                            <img src="./images/LOGO_FW.png" alt="Logo Fixed Wing" class="w-full h-full object-contain scale-[1.85] transform group-hover:scale-[2.05] transition-transform duration-300">
                         </div>
                         <div>
                             <span class="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-lg text-xs font-bold mb-2">
@@ -884,8 +894,8 @@
                     <div class="absolute -right-16 -top-16 w-64 h-64 bg-yellow-custom/10 rounded-full blur-3xl pointer-events-none"></div>
                     
                     <div class="flex flex-col md:flex-row items-center gap-8 mb-8 pb-6 border-b border-white/10 relative z-10">
-                        <div class="w-32 h-32 md:w-40 md:h-40 flex-shrink-0 bg-navy/40 backdrop-blur-sm p-1.5 rounded-2xl shadow-xl border-2 border-yellow-custom flex items-center justify-center overflow-hidden group">
-                            <img src="./images/LOGO_VTOL.png" alt="Logo VTOL Division" class="w-full h-full object-contain scale-115 transform group-hover:scale-125 transition-transform duration-300">
+                        <div class="w-36 h-36 md:w-44 md:h-44 flex-shrink-0 bg-navy/40 backdrop-blur-sm p-2 rounded-2xl shadow-xl border-2 border-yellow-custom flex items-center justify-center overflow-hidden group">
+                            <img src="./images/LOGO_VTOL.png" alt="Logo VTOL Division" class="w-full h-full object-contain scale-[1.35] transform group-hover:scale-[1.5] transition-transform duration-300">
                         </div>
                         <div>
                             <div class="inline-flex items-center gap-2 px-3 py-1 bg-yellow-custom text-navy rounded-full text-xs font-extrabold mb-3 shadow-lg uppercase tracking-wider">

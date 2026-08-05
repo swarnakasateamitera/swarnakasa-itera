@@ -49,6 +49,154 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="main.css">
+
+    <!-- Keep this page's navbar inside the fixed header. main.css fixes every
+         <nav>, which removes it from the header flow and leaves the sticky
+         background only as tall as the header padding. -->
+    <style>
+        #sponsorship-header > .sponsorship-navbar {
+            position: static;
+            width: 100%;
+            z-index: auto;
+            background: transparent;
+        }
+
+        .sponsorship-brand,
+        .sponsorship-brand-logo,
+        .sponsorship-brand-name,
+        .sponsorship-nav-link,
+        .sponsorship-nav-link::after,
+        .sponsorship-icon-button,
+        .sponsorship-icon-button i,
+        .sponsorship-cta,
+        .sponsorship-cta i,
+        .sponsorship-mobile-link {
+            transition-duration: 220ms;
+            transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .sponsorship-brand,
+        .sponsorship-brand-logo,
+        .sponsorship-brand-name,
+        .sponsorship-icon-button,
+        .sponsorship-icon-button i,
+        .sponsorship-cta,
+        .sponsorship-cta i,
+        .sponsorship-mobile-link {
+            transition-property: color, background-color, transform, letter-spacing;
+        }
+
+        .sponsorship-nav-link {
+            position: relative;
+            padding-block: 0.45rem;
+            transition-property: color, transform;
+        }
+
+        .sponsorship-nav-link::after {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            border-radius: 999px;
+            background: #f1d00a;
+            content: "";
+            transform: scaleX(0);
+            transform-origin: center;
+            transition-property: transform;
+        }
+
+        .sponsorship-nav-link[aria-current="page"]::after {
+            transform: scaleX(1);
+        }
+
+        .sponsorship-mobile-link {
+            display: block;
+            margin-inline: -0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.75rem;
+        }
+
+        .sponsorship-nav-link:focus-visible,
+        .sponsorship-mobile-link:focus-visible,
+        .sponsorship-brand:focus-visible,
+        .sponsorship-icon-button:focus-visible,
+        .sponsorship-cta:focus-visible {
+            outline: 2px solid #f1d00a;
+            outline-offset: 3px;
+        }
+
+        .sponsorship-icon-button:active,
+        .sponsorship-cta:active,
+        .sponsorship-mobile-link:active {
+            transform: scale(0.96);
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .sponsorship-brand:hover {
+                transform: translateY(-1px);
+            }
+
+            .sponsorship-brand:hover .sponsorship-brand-logo {
+                transform: translateY(-2px) rotate(-4deg) scale(1.06);
+            }
+
+            .sponsorship-brand:hover .sponsorship-brand-name {
+                letter-spacing: 0.035em;
+            }
+
+            .sponsorship-nav-link:hover,
+            .sponsorship-nav-link:focus-visible {
+                transform: translateY(-2px);
+            }
+
+            .sponsorship-nav-link:hover::after,
+            .sponsorship-nav-link:focus-visible::after {
+                transform: scaleX(1);
+            }
+
+            .sponsorship-icon-button:hover i {
+                transform: rotate(-10deg) scale(1.08);
+            }
+
+            .sponsorship-cta:hover i {
+                transform: translateX(2px) rotate(-5deg) scale(1.08);
+            }
+
+            .sponsorship-mobile-link:hover {
+                background: rgba(241, 208, 10, 0.12);
+                transform: translateX(4px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #sponsorship-header,
+            #sponsorship-header *,
+            #sponsorship-header *::before,
+            #sponsorship-header *::after {
+                scroll-behavior: auto !important;
+                animation: none !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .sponsorship-brand:hover,
+            .sponsorship-brand:hover .sponsorship-brand-logo,
+            .sponsorship-nav-link:hover,
+            .sponsorship-nav-link:focus-visible,
+            .sponsorship-icon-button:hover i,
+            .sponsorship-cta:hover i,
+            .sponsorship-mobile-link:hover,
+            .sponsorship-icon-button:active,
+            .sponsorship-cta:active,
+            .sponsorship-mobile-link:active {
+                transform: none !important;
+            }
+
+            .sponsorship-brand:hover .sponsorship-brand-name {
+                letter-spacing: normal !important;
+            }
+        }
+    </style>
     
     <!-- Alpine.js & AOS Script -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -57,35 +205,41 @@
 <body class="bg-gray-50 dark:bg-dark-slate text-gray-800 dark:text-gray-100 font-sans transition-colors duration-300 antialiased selection:bg-yellow-custom selection:text-navy">
 
     <!-- ===== HEADER & NAVBAR DENGAN SOLID BACKGROUND SOLUSI TUMPANG TINDIH ===== -->
-    <header x-data="{ mobileMenuOpen: false, isSticky: false }" 
-            @scroll.window="isSticky = window.scrollY > 20" 
-            class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-[#21325e]" 
-            :class="{ 'bg-white dark:bg-[#1a2646] shadow-xl border-b border-gray-200 dark:border-gray-800 py-3': isSticky, 'bg-[#21325e] shadow-md py-4': !isSticky }">
-        <nav class="container mx-auto px-6" role="navigation" aria-label="Navigasi Utama">
+    <header id="sponsorship-header"
+            x-data="{ mobileMenuOpen: false, isSticky: false }" 
+            x-init="isSticky = (window.scrollY > 20)"
+            @scroll.window="isSticky = (window.scrollY > 20)" 
+            class="fixed top-0 left-0 w-full z-50 transition-all duration-300" 
+            :class="isSticky ? 'bg-white dark:bg-navy shadow-md py-3' : 'bg-transparent py-4'">
+        <nav class="sponsorship-navbar container mx-auto px-6" role="navigation" aria-label="Navigasi Utama">
             <div class="flex justify-between items-center">
-                <a href="index.html" class="flex items-center gap-3 group" aria-label="Swarnakasa ITERA - Beranda">
-                    <img src="./images/Logo_swarna.png" alt="Logo Swarnakasa ITERA" class="h-10 w-auto transition-transform group-hover:scale-105">
-                    <span class="text-xl font-bold font-heading transition-colors" :class="{ 'text-[#21325e] dark:text-white': isSticky, 'text-white': !isSticky }">SWARNAKASA</span>
+                <a href="index.html" class="sponsorship-brand flex items-center gap-3 group" aria-label="Swarnakasa ITERA - Beranda">
+                    <img src="./images/Logo_swarna.png" alt="Logo Swarnakasa ITERA" class="sponsorship-brand-logo h-10 w-auto">
+                    <span class="sponsorship-brand-name text-xl font-extrabold font-heading transition-colors duration-300" 
+                          :class="isSticky ? 'text-navy dark:text-white' : 'text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'">
+                        SWARNAKASA
+                    </span>
                 </a>
                 
                 <!-- Desktop Menu dengan kontras dinamis -->
-                <ul class="hidden md:flex items-center space-x-8 font-semibold text-sm transition-colors" 
-                    :class="{ 'text-[#21325e] dark:text-gray-100': isSticky, 'text-white': !isSticky }" role="menubar">
-                    <li role="none"><a href="index.html#home" class="hover:text-yellow-custom transition-colors" role="menuitem">Home</a></li>
-                    <li role="none"><a href="index.html#about" class="hover:text-yellow-custom transition-colors" role="menuitem">About</a></li>
-                    <li role="none"><a href="gallery.html" class="hover:text-yellow-custom transition-colors" role="menuitem">Gallery</a></li>
-                    <li role="none"><a href="sponsorship.html" class="text-yellow-custom font-bold border-b-2 border-yellow-custom pb-1" role="menuitem">Sponsorship</a></li>
-                    <li role="none"><a href="index.html#achievements" class="hover:text-yellow-custom transition-colors" role="menuitem">Prestasi</a></li>
-                    <li role="none"><a href="index.html#news" class="hover:text-yellow-custom transition-colors" role="menuitem">News</a></li>
-                    <li role="none"><a href="index.html#team" class="hover:text-yellow-custom transition-colors" role="menuitem">Team</a></li>
-                    <li role="none"><a href="#contact-sponsorship" class="hover:text-yellow-custom transition-colors" role="menuitem">Contact</a></li>
+                <ul class="hidden md:flex items-center space-x-8 font-semibold text-sm transition-colors duration-300" 
+                    :class="isSticky ? 'text-navy dark:text-gray-100 font-semibold' : 'text-white font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'" 
+                    role="menubar">
+                    <li role="none"><a href="index.html#home" class="sponsorship-nav-link hover:text-yellow-custom inline-block" role="menuitem">Home</a></li>
+                    <li role="none"><a href="index.html#about" class="sponsorship-nav-link hover:text-yellow-custom inline-block" role="menuitem">About</a></li>
+                    <li role="none"><a href="gallery.html" class="sponsorship-nav-link hover:text-yellow-custom inline-block" role="menuitem">Gallery</a></li>
+                    <li role="none"><a href="sponsorship.html" class="sponsorship-nav-link text-yellow-custom font-extrabold inline-block" role="menuitem" aria-current="page">Sponsorship</a></li>
+                    <li role="none"><a href="index.html#achievements" class="sponsorship-nav-link hover:text-yellow-custom inline-block" role="menuitem">Prestasi</a></li>
+                    <li role="none"><a href="index.html#news" class="sponsorship-nav-link hover:text-yellow-custom inline-block" role="menuitem">News</a></li>
+                    <li role="none"><a href="index.html#team" class="sponsorship-nav-link hover:text-yellow-custom inline-block" role="menuitem">Team</a></li>
+                    <li role="none"><a href="#contact-sponsorship" class="sponsorship-nav-link hover:text-yellow-custom inline-block" role="menuitem">Contact</a></li>
                 </ul>
 
                 <div class="flex items-center space-x-4">
                     <!-- Dark Mode Toggle Button -->
                     <button @click="darkMode = !darkMode; localStorage.setItem('darkMode', darkMode)" 
-                            class="p-2.5 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-custom" 
-                            :class="{ 'text-[#21325e] dark:text-yellow-custom hover:bg-gray-100 dark:hover:bg-white/10': isSticky, 'text-yellow-custom hover:bg-white/10': !isSticky }"
+                            class="sponsorship-icon-button p-2.5 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-custom" 
+                            :class="isSticky ? 'text-navy dark:text-yellow-custom hover:bg-gray-200 dark:hover:bg-light-blue' : 'text-white hover:bg-white/20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'"
                             aria-label="Ubah Mode Tampilan">
                         <i x-show="!darkMode" class="fa-solid fa-moon text-lg"></i>
                         <i x-show="darkMode" class="fa-solid fa-sun text-lg"></i>
@@ -94,17 +248,19 @@
                     <!-- CTA Direct WhatsApp Button Navbar -->
                     <a href="https://wa.me/6283173902295?text=Halo%20Tim%20Swarnakasa%20ITERA,%20kami%20tertarik%20untuk%20berdiskusi%20mengenai%20peluang%20sponsorship." 
                        target="_blank" 
-                       class="hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-yellow-custom hover:bg-yellow-400 text-navy font-bold text-xs rounded-xl shadow-md transition-all hover:scale-105">
+                       class="sponsorship-cta hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-yellow-custom hover:bg-yellow-400 text-navy font-bold text-xs rounded-xl shadow-md hover:-translate-y-0.5">
                         <i class="fa-brands fa-whatsapp text-sm"></i> Diskusi Mitra
                     </a>
 
                     <!-- Mobile Menu Button -->
                     <button @click="mobileMenuOpen = !mobileMenuOpen" 
-                            class="md:hidden p-2 rounded-md transition-colors"
-                            :class="{ 'text-[#21325e] dark:text-white': isSticky, 'text-white': !isSticky }" 
-                            aria-label="Buka Menu Navigasi">
-                        <i x-show="!mobileMenuOpen" class="fa-solid fa-bars text-xl"></i>
-                        <i x-show="mobileMenuOpen" class="fa-solid fa-xmark text-xl"></i>
+                            class="sponsorship-icon-button md:hidden p-2 rounded-md"
+                            :class="isSticky ? 'text-navy dark:text-white hover:bg-gray-100 dark:hover:bg-light-blue' : 'text-white hover:bg-white/20 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]'" 
+                            aria-label="Buka Menu Navigasi"
+                            :aria-expanded="mobileMenuOpen.toString()"
+                            aria-controls="mobile-menu">
+                        <i x-show="!mobileMenuOpen" x-transition.opacity.duration.150ms class="fa-solid fa-bars text-xl"></i>
+                        <i x-show="mobileMenuOpen" x-transition.opacity.duration.150ms class="fa-solid fa-xmark text-xl"></i>
                     </button>
                 </div>
             </div>
@@ -114,28 +270,31 @@
                  x-transition:enter="transition ease-out duration-200"
                  x-transition:enter-start="opacity-0 -translate-y-4"
                  x-transition:enter-end="opacity-100 translate-y-0"
+                 x-transition:leave="transition ease-in duration-150"
+                 x-transition:leave-start="opacity-100 translate-y-0"
+                 x-transition:leave-end="opacity-0 -translate-y-2"
                  @click.away="mobileMenuOpen = false" 
-                 class="md:hidden mt-4 bg-navy dark:bg-light-blue rounded-2xl shadow-2xl p-6 border border-gray-700" 
+                 class="md:hidden mt-4 bg-white/95 dark:bg-navy/95 backdrop-blur-md rounded-2xl shadow-2xl p-6 border border-gray-100 dark:border-gray-800" 
                  id="mobile-menu">
-                 <ul class="flex flex-col space-y-4 font-semibold text-white text-base">
-                    <li><a href="index.html#home" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Home</a></li>
-                    <li><a href="index.html#about" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">About</a></li>
-                    <li><a href="gallery.html" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Gallery</a></li>
-                    <li><a href="sponsorship.html" @click="mobileMenuOpen=false" class="text-yellow-custom font-bold block">Sponsorship & Kemitraan</a></li>
-                    <li><a href="index.html#achievements" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Prestasi</a></li>
-                    <li><a href="index.html#news" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">News</a></li>
-                    <li><a href="index.html#team" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Team</a></li>
-                    <li><a href="#contact-sponsorship" @click="mobileMenuOpen=false" class="hover:text-yellow-custom transition-colors block">Contact</a></li>
+                 <ul class="flex flex-col space-y-4 font-semibold text-navy dark:text-white text-base">
+                    <li><a href="index.html#home" @click="mobileMenuOpen=false" class="sponsorship-mobile-link hover:text-yellow-custom">Home</a></li>
+                    <li><a href="index.html#about" @click="mobileMenuOpen=false" class="sponsorship-mobile-link hover:text-yellow-custom">About</a></li>
+                    <li><a href="gallery.html" @click="mobileMenuOpen=false" class="sponsorship-mobile-link hover:text-yellow-custom">Gallery</a></li>
+                    <li><a href="sponsorship.html" @click="mobileMenuOpen=false" class="sponsorship-mobile-link text-yellow-custom font-bold" aria-current="page">Sponsorship & Kemitraan</a></li>
+                    <li><a href="index.html#achievements" @click="mobileMenuOpen=false" class="sponsorship-mobile-link hover:text-yellow-custom">Prestasi</a></li>
+                    <li><a href="index.html#news" @click="mobileMenuOpen=false" class="sponsorship-mobile-link hover:text-yellow-custom">News</a></li>
+                    <li><a href="index.html#team" @click="mobileMenuOpen=false" class="sponsorship-mobile-link hover:text-yellow-custom">Team</a></li>
+                    <li><a href="#contact-sponsorship" @click="mobileMenuOpen=false" class="sponsorship-mobile-link hover:text-yellow-custom">Contact</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
     <!-- ===== MAIN CONTENT ===== -->
-    <main class="pt-24 md:pt-28 overflow-hidden">
+    <main class="pt-0 overflow-hidden">
         
         <!-- HERO BANNER: SPONSORSHIP PORTAL -->
-        <section class="relative py-20 md:py-32 bg-gradient-to-b from-navy via-navy/95 to-dark-slate text-white">
+        <section class="relative pt-28 pb-20 md:pt-36 md:pb-32 bg-gradient-to-b from-navy via-navy/95 to-dark-slate text-white">
             <div class="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-overlay" style="background-image: url('./images/bg.jpg');"></div>
             <div class="absolute top-1/4 -left-20 w-80 h-80 bg-yellow-custom/15 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute bottom-10 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
